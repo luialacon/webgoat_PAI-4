@@ -1,0 +1,8 @@
+title = "Configuración Gitleaks WebGoat PAI-4"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Exclusiones controladas y justificadas"
+paths = []

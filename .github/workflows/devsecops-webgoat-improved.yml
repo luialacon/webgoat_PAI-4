@@ -1,0 +1,187 @@
+name: PAI-4 DevSecOps WebGoat (Mejorado)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  build-and-static-security:
+    name: Build, Secretos, SAST, SCA e IaC (Gate A - Aviso)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código fuente (historial completo para secretos)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Java 21 y compilar con Maven
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Compilar aplicación WebGoat
+        run: mvn package -DskipTests
+
+      - name: Construir imagen Docker de WebGoat
+        run: docker build -t webgoat-local:pai4 .
+
+      - name: Guardar imagen Docker para la etapa de pruebas
+        run: |
+          mkdir -p /tmp/docker-image
+          docker save webgoat-local:pai4 -o /tmp/docker-image/webgoat-local.tar
+
+      - name: Subir imagen Docker como artefacto temporal
+        uses: actions/upload-artifact@v4
+        with:
+          name: webgoat-docker-image
+          path: /tmp/docker-image/webgoat-local.tar
+          retention-days: 1
+
+      - name: Escaneo de Secretos con Gitleaks (Gate A - Modo Aviso)
+        continue-on-error: true
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_CONFIG: .gitleaks/config.toml
+        with:
+          args: --report-format json --report-path gitleaks.json
+
+      - name: SAST con Semgrep (Gate A - Modo Aviso)
+        continue-on-error: true
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install semgrep
+          semgrep scan --config auto --severity ERROR --error --json -o semgrep-report.json .
+
+      - name: SCA con OWASP Dependency-Check (Gate A - Modo Aviso)
+        continue-on-error: true
+        uses: dependency-check/Dependency-Check_Action@main
+        with:
+          project: 'WebGoat'
+          path: '.'
+          format: 'XML'
+          args: >
+            --failOnCVSS 7
+            --out .
+
+      - name: Seguridad IaC con Trivy Config (Gate A - Modo Aviso)
+        continue-on-error: true
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'config'
+          scan-ref: '.'
+          severity: 'CRITICAL,HIGH'
+          exit-code: '1'
+          format: 'json'
+          output: 'trivy-iac-report.json'
+
+      - name: Subir informes de etapa Build / Estático
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-static-reports
+          path: |
+            gitleaks.json
+            semgrep-report.json
+            dependency-check-report.xml
+            trivy-iac-report.json
+
+  staging-image-and-dast:
+    name: Escaneo de Imagen, Staging y DAST (Gate B - Bloqueante)
+    needs: build-and-static-security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código fuente
+        uses: actions/checkout@v4
+
+      - name: Descargar y cargar imagen Docker de WebGoat
+        uses: actions/download-artifact@v4
+        with:
+          name: webgoat-docker-image
+          path: /tmp/docker-image
+
+      - name: Cargar imagen en el daemon Docker del runner
+        run: docker load -i /tmp/docker-image/webgoat-local.tar
+
+      - name: Escaneo de Vulnerabilidades en Imagen Docker con Trivy (Modo Aviso)
+        continue-on-error: true
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'webgoat-local:pai4'
+          severity: 'CRITICAL,HIGH'
+          exit-code: '1'
+          format: 'json'
+          output: 'trivy-img-report.json'
+
+      - name: Arrancar WebGoat en contenedor para pruebas dinámicas
+        run: |
+          docker run -d --name webgoat-staging -p 8080:8080 webgoat-local:pai4
+          echo "Esperando a que WebGoat inicie..."
+          timeout 120 bash -c 'until curl -s http://localhost:8080/WebGoat/login > /dev/null; do sleep 3; done'
+
+      - name: DAST con OWASP ZAP (Gate B - Bloqueante)
+        uses: zaproxy/action-baseline@v0.12.0
+        with:
+          target: 'http://localhost:8080/WebGoat'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a -x zap-report.xml'
+          allow_issue_writing: false
+          fail_action: true
+
+      - name: Guardar informes de Imagen y DAST (siempre, aunque Gate B bloquee)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: staging-dast-reports
+          path: |
+            trivy-img-report.json
+            zap-report.xml
+
+  import-to-defectdojo:
+    name: Importar Informes a DefectDojo (if always)
+    needs: [build-and-static-security, staging-image-and-dast]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar todos los informes generados
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+
+      - name: Enviar informes a DefectDojo vía API REST
+        env:
+          DD_URL: ${{ secrets.DEFECTDOJO_URL }}
+          DD_KEY: ${{ secrets.DEFECTDOJO_API_KEY }}
+          DD_ENG: ${{ secrets.DEFECTDOJO_ENGAGEMENT_ID }}
+        run: |
+          upload_scan() {
+            local SCAN_TYPE="$1"
+            local REPORT_PATH="$2"
+            if [ -f "$REPORT_PATH" ]; then
+              echo "Subiendo $REPORT_PATH ($SCAN_TYPE) a DefectDojo..."
+              curl -fsS -X POST "$DD_URL/api/v2/import-scan/" \
+                -H "Authorization: Token $DD_KEY" \
+                -F "engagement=$DD_ENG" \
+                -F "scan_type=$SCAN_TYPE" \
+                -F "file=@$REPORT_PATH" \
+                -F "active=true" \
+                -F "verified=false"
+              echo ""
+            else
+              echo "Aviso: no existe $REPORT_PATH, se omite."
+            fi
+          }
+
+          upload_scan "Gitleaks Scan" "build-static-reports/gitleaks.json"
+          upload_scan "Semgrep JSON Report" "build-static-reports/semgrep-report.json"
+          upload_scan "Dependency Check Scan" "build-static-reports/dependency-check-report.xml"
+          upload_scan "Trivy Scan" "build-static-reports/trivy-iac-report.json"
+          upload_scan "Trivy Scan" "staging-dast-reports/trivy-img-report.json"
+          upload_scan "ZAP Scan" "staging-dast-reports/zap-report.xml"
