@@ -28,7 +28,7 @@ jobs:
           cache: 'maven'
 
       - name: Compilar aplicación WebGoat
-        run: mvn package -DskipTests
+        run: mvn package -DskipTests -Dmaven.compiler.release=21
 
       - name: Construir imagen Docker de WebGoat
         run: docker build -t webgoat-local:pai4 .
