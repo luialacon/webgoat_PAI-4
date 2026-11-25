@@ -2,9 +2,9 @@ name: PAI-4 DevSecOps WebGoat (Mejorado)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
 
 permissions:
   contents: read
@@ -65,7 +65,7 @@ jobs:
         continue-on-error: true
         uses: dependency-check/Dependency-Check_Action@main
         with:
-          project: 'WebGoat'
+          project: 'WebGoat-PAI4'
           path: '.'
           format: 'XML'
           args: >
@@ -128,13 +128,17 @@ jobs:
           timeout 120 bash -c 'until curl -s http://localhost:8080/WebGoat/login > /dev/null; do sleep 3; done'
 
       - name: DAST con OWASP ZAP (Gate B - Bloqueante)
-        uses: zaproxy/action-baseline@v0.12.0
-        with:
-          target: 'http://localhost:8080/WebGoat'
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a -x zap-report.xml'
-          allow_issue_writing: false
-          fail_action: true
+        run: |
+          mkdir -p "$(pwd)/zap-out"
+          chmod 777 "$(pwd)/zap-out"
+          docker run --rm --network host \
+            -v "$(pwd)/zap-out:/zap/wrk:rw" \
+            -v "$(pwd)/.zap/rules.tsv:/zap/rules.tsv:ro" \
+            ghcr.io/zaproxy/zaproxy:stable \
+            zap-baseline.py \
+            -t http://localhost:8080/WebGoat \
+            -c /zap/rules.tsv \
+            -x zap-report.xml
 
       - name: Guardar informes de Imagen y DAST (siempre, aunque Gate B bloquee)
         if: always()
@@ -143,7 +147,7 @@ jobs:
           name: staging-dast-reports
           path: |
             trivy-img-report.json
-            zap-report.xml
+            zap-out/zap-report.xml
 
   import-to-defectdojo:
     name: Importar Informes a DefectDojo (if always)
@@ -184,4 +188,4 @@ jobs:
           upload_scan "Dependency Check Scan" "build-static-reports/dependency-check-report.xml"
           upload_scan "Trivy Scan" "build-static-reports/trivy-iac-report.json"
           upload_scan "Trivy Scan" "staging-dast-reports/trivy-img-report.json"
-          upload_scan "ZAP Scan" "staging-dast-reports/zap-report.xml"
+          upload_scan "ZAP Scan" "staging-dast-reports/zap-out/zap-report.xml"
