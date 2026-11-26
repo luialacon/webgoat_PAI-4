@@ -1,4 +1,4 @@
-# Triaje y priorización de hallazgos (ejecución 45833277119)
+# Triaje y priorización de hallazgos (ejecución 45848736228)
 
 Criterio: WebGoat es una aplicación vulnerable a propósito. Los hallazgos en las lecciones
 (`src/main/java/.../lessons`, `src/main/resources/lessons`) y en los tests son el material

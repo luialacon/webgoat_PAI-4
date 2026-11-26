@@ -3,16 +3,16 @@
   "Trivy": {
     "Version": "0.76.2"
   },
-  "ReportID": "01a21822-1b70-7b98-8550-e3e9395212bc",
-  "CreatedAt": "2026-11-26T13:53:38.160762707Z",
-  "ArtifactID": "sha256:a3753ac83aa2fc852a363931bfd0467f3debaa186be3879ea3c94ade3203299e",
+  "ReportID": "01a21876-a606-7111-b8d4-198f03e2d924",
+  "CreatedAt": "2026-11-26T15:25:58.662072649Z",
+  "ArtifactID": "sha256:5a741268066ad6db5b7b7c1ea18b491d6daac576e1376d8702d480d4421c7270",
   "ArtifactName": ".",
   "ArtifactType": "repository",
   "Metadata": {
     "RepoURL": "https://github.com/luialacon/webgoat_PAI-4",
     "Branch": "main",
-    "Commit": "b6d363fdad70a549f626c2475368e8b0f3069e67",
-    "CommitMsg": "Analizar tambien Dockerfile_desktop con Trivy IaC; diagramas renderizados y evidencias de la ejecucion corregida\n\nCo-Authored-By: Claude Sonnet 5.5 \u003cnoreply@anthropic.com\u003e\nClaude-Session: https://claude.ai/code/session_01PPQEPJCqBNCe2fesFwbGGj",
+    "Commit": "6d41ba5651bceb491ecf60f7de3e46d90c8ec373",
+    "CommitMsg": "Importacion DefectDojo: capturar el codigo de curl sin abortar antes del mensaje",
     "Author": "RaimundoNexoNeural \u003craimundo@nexoneural.es\u003e",
     "Committer": "RaimundoNexoNeural \u003craimundo@nexoneural.es\u003e"
   },

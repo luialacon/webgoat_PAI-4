@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<OWASPZAPReport programName="ZAP" version="2.17.0" generated="Thu, 26 Nov 2026 13:55:55" created="2026-11-26T13:55:55.368574325Z">
+<OWASPZAPReport programName="ZAP" version="2.17.0" generated="Thu, 26 Nov 2026 15:28:14" created="2026-11-26T15:28:14.930540188Z">
 	
 		<site name="http://localhost:8080" host="localhost" port="8080" ssl="false">
 			<alerts>
@@ -408,8 +408,8 @@
 							
 							
 								<instance>
-									<uri>http://localhost:8080/WebGoat/css/animate.css</uri>
-									<nodeName>http://localhost:8080/WebGoat/css/animate.css</nodeName>
+									<uri>http://localhost:8080/WebGoat/css/font-awesome.min.css</uri>
+									<nodeName>http://localhost:8080/WebGoat/css/font-awesome.min.css</nodeName>
 									<method>GET</method>
 									<param>Cross-Origin-Resource-Policy</param>
 									<attack></attack>
@@ -419,8 +419,8 @@
 							
 							
 								<instance>
-									<uri>http://localhost:8080/WebGoat/css/font-awesome.min.css</uri>
-									<nodeName>http://localhost:8080/WebGoat/css/font-awesome.min.css</nodeName>
+									<uri>http://localhost:8080/WebGoat/css/img/favicon.ico</uri>
+									<nodeName>http://localhost:8080/WebGoat/css/img/favicon.ico</nodeName>
 									<method>GET</method>
 									<param>Cross-Origin-Resource-Policy</param>
 									<attack></attack>
@@ -738,8 +738,19 @@ referer=http://localhost:8080/WebGoat/login</otherinfo>
 									<otherinfo>cookie:JSESSIONID</otherinfo>
 								</instance>
 							
+							
+								<instance>
+									<uri>http://localhost:8080/WebGoat/</uri>
+									<nodeName>http://localhost:8080/WebGoat/</nodeName>
+									<method>GET</method>
+									<param>JSESSIONID</param>
+									<attack></attack>
+									<evidence>JSESSIONID</evidence>
+									<otherinfo>cookie:JSESSIONID</otherinfo>
+								</instance>
+							
 						</instances>
-						<count>1</count>
+						<count>2</count>
 						<systemic>false</systemic>
 						<solution>&lt;p&gt;This is an informational alert rather than a vulnerability and so there is nothing to fix.&lt;/p&gt;</solution>
 						<otherinfo>&lt;p&gt;cookie:JSESSIONID&lt;/p&gt;</otherinfo>
@@ -785,8 +796,8 @@ referer=http://localhost:8080/WebGoat/login</otherinfo>
 							
 							
 								<instance>
-									<uri>http://localhost:8080/sitemap.xml</uri>
-									<nodeName>http://localhost:8080/sitemap.xml</nodeName>
+									<uri>http://localhost:8080/robots.txt</uri>
+									<nodeName>http://localhost:8080/robots.txt</nodeName>
 									<method>GET</method>
 									<param></param>
 									<attack></attack>
@@ -802,7 +813,7 @@ referer=http://localhost:8080/WebGoat/login</otherinfo>
 						<reference>&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7234&lt;/p&gt;&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7231&lt;/p&gt;&lt;p&gt;https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html&lt;/p&gt;</reference>
 						<cweid>524</cweid>
 						<wascid>13</wascid>
-						<sourceid>7</sourceid>
+						<sourceid>10</sourceid>
 					</alertitem>
 				
 				
@@ -1009,6 +1020,16 @@ zap</otherinfo>
 					<key>insight.endpoint.total</key>
 					<description>Count of total endpoints</description>
 					<statistic>16</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.response.slow</key>
+					<description>Percentage of slow responses</description>
+					<statistic>5</statistic>
 				</insight>
 			
 		</insights>

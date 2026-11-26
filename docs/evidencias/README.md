@@ -10,8 +10,8 @@ Defectos detectados en el análisis y corregidos después:
 - Dependency-Check escribió el informe en una carpeta que no se recogía (nunca llegó a DefectDojo).
 - Gate B bloqueó con exit code 2 por avisos de ZAP, sin umbral explícito.
 
-## ejecucion-2026-11-26-final (pipeline corregido, run 45833277119)
-https://github.com/luialacon/webgoat_PAI-4/actions/runs/45833277119
+## ejecucion-2026-11-26-final (pipeline corregido, run 45848736228)
+https://github.com/luialacon/webgoat_PAI-4/actions/runs/45848736228
 
 | Fichero | Herramienta | Resultado |
 |---|---|---|
@@ -21,9 +21,9 @@ https://github.com/luialacon/webgoat_PAI-4/actions/runs/45833277119
 | trivy-iac-report.json | Trivy config (Dockerfile y Dockerfile_desktop) | 1 alta: DS-0002, `Dockerfile_desktop` se ejecuta como root |
 | trivy-img-report.json | Trivy image | 23 (1 crítica, 22 altas) |
 | zap-report.xml | OWASP ZAP baseline (DAST) | 14 alertas; 3 de riesgo medio bloquean (FAIL-NEW: 3, exit code 1) |
-| pipeline-run-45833277119.log | Log completo | Gate A en aviso, Gate B detenido por ZAP |
+| pipeline-run-45848736228.log | Log completo | Gate A en aviso, Gate B detenido por ZAP |
 
-El job de importación a DefectDojo se detiene con un error explícito cuando el túnel temporal
-hacia la instancia local no está activo (HTTP 000).
+El job de importación a DefectDojo terminó en verde: «Informes enviados a DefectDojo: 6 de 6 esperados».
+Si el túnel temporal no está activo, el job falla de forma explícita indicando la causa.
 
 Ningún fichero contiene credenciales (comprobado). Triaje: `../triaje-vulnerabilidades.md`.

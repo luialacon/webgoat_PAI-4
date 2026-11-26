@@ -82,12 +82,12 @@
   <tr><th>Objetivo</th><th>Estado</th><th>Evidencia principal</th></tr>
   <tr><td>1. Diseño y montaje del pipeline, con dos diagramas coherentes con la implementación</td><td class="ok">Cumplido</td><td>§3, <code>docs/diagramas/</code>, <code>.github/workflows/devsecops-webgoat-improved.yml</code></td></tr>
   <tr><td>2. Al menos 3 herramientas de tipos distintos</td><td class="ok">5 tipos: secretos, SAST, SCA, IaC/imagen y DAST</td><td>§4</td></tr>
-  <tr><td>3. Ejecución automática en cada cambio</td><td class="ok">Cumplido</td><td>Disparador <code>push</code> y <code>pull_request</code>; ejecuciones 45681585355 y 45833277119</td></tr>
+  <tr><td>3. Ejecución automática en cada cambio</td><td class="ok">Cumplido</td><td>Disparador <code>push</code> y <code>pull_request</code>; ejecuciones 45681585355 y 45848736228</td></tr>
   <tr><td>4. Quality gates, uno bloqueante y otros en modo aviso, con ejecución detenida</td><td class="ok">Cumplido</td><td>§6; Gate B detiene el pipeline (ZAP, código de salida 1)</td></tr>
-  <tr><td>5. Gestión centralizada y automática en DefectDojo</td><td class="am">Cumplido con una limitación (ver §7 y §9)</td><td>Importación por API REST; 122 hallazgos importados el 25-11; triaje documentado</td></tr>
+  <tr><td>5. Gestión centralizada y automática en DefectDojo</td><td class="ok">Cumplido</td><td>Importación automática por API REST: 6 de 6 informes en la ejecución final 45848736228; triaje documentado</td></tr>
 </table>
 <p><b>Resultado clave.</b> En la ejecución final, las cinco herramientas detectan al menos una vulnerabilidad de la aplicación: Gitleaks 24 posibles secretos, Semgrep 31 hallazgos de código, Trivy SCA 23 vulnerabilidades en dependencias (1 crítica y 22 altas), Trivy IaC 1 configuración insegura (contenedor como <i>root</i>) y ZAP 14 alertas dinámicas, 3 de ellas de riesgo medio que <b>bloquean el pipeline</b>. El análisis crítico (§8) separa lo que es ruido o vulnerabilidad didáctica deliberada de lo que es un defecto real a corregir.</p>
-<p><b>Honestidad sobre el estado.</b> El proceso reveló fallos en nuestra primera versión del pipeline (herramientas que ejecutaban sin producir informe) que se detectaron, se corrigieron y se documentan en §5.2. La única limitación vigente es que DefectDojo corre en un equipo local y se alcanza mediante un túnel temporal; cuando éste no está activo, el job de importación falla de forma explícita (§7 y §9).</p>
+<p><b>Honestidad sobre el estado.</b> El proceso reveló fallos en nuestra primera versión del pipeline (herramientas que ejecutaban sin producir informe) que se detectaron, se corrigieron y se documentan en §5.2. La limitación que queda es de infraestructura: DefectDojo corre en un equipo local y se alcanza mediante un túnel temporal, por lo que su dirección cambia al reiniciarlo y hay que actualizar un secreto (§9).</p>
 
 <!-- ============ 2. APP Y REPO ============ -->
 <h1>2. Aplicación de prueba y repositorio</h1>
@@ -176,7 +176,7 @@
 <p><b>Justificación de los umbrales.</b> En el análisis estático se usa el umbral "crítica o alta", habitual y alineado con el enunciado, pero en modo aviso porque la aplicación es vulnerable a propósito y bloquear aquí impediría llegar al DAST. En ZAP se bloquea a partir de riesgo <b>medio</b>: las reglas de riesgo bajo (cookie <i>SameSite</i>, <i>Permissions-Policy</i>, etc.) son endurecimientos deseables pero no justifican parar una entrega, mientras que la ausencia de CSP, de protección anti-<i>clickjacking</i> y de tokens CSRF afecta directamente a ataques web habituales. Las reglas 10031, 10111 y 10112 son informativas y se ignoran.</p>
 <h3>Demostración del funcionamiento</h3>
 <ul>
-  <li><b>Modo aviso:</b> en la ejecución 45833277119 los pasos de Gitleaks, Semgrep, Trivy SCA y Trivy IaC terminan con código 1 (superan el umbral) y aun así el job 1 acaba en verde y el pipeline continúa hacia el job 2.</li>
+  <li><b>Modo aviso:</b> en la ejecución 45848736228 los pasos de Gitleaks, Semgrep, Trivy SCA y Trivy IaC terminan con código 1 (superan el umbral) y aun así el job 1 acaba en verde y el pipeline continúa hacia el job 2.</li>
   <li><b>Modo bloqueante:</b> en esa misma ejecución ZAP devuelve <code>FAIL-NEW: 3 … PASS: 57</code> y <code>exit code 1</code>; el job 2 queda en rojo y el despliegue no se produce. En la ejecución del 25-11 ZAP bloqueó con código 2 (<code>WARN-NEW: 11</code>), lo que justificó definir el umbral de forma explícita.</li>
   <li><b>La visibilidad no se pierde:</b> pese al bloqueo, los informes se guardan y el job de importación se ejecuta (<code>if: always()</code>).</li>
 </ul>
@@ -185,7 +185,7 @@
 <h1>7. Gestión de vulnerabilidades con DefectDojo (objetivo 5)</h1>
 <h2>7.1 Integración</h2>
 <p>DefectDojo se ejecuta en un equipo local del equipo, organizado como <b>producto</b> <code>WebGoat-PAI4</code> con un <b>engagement</b> de CI/CD. Como los runners de GitHub no alcanzan <code>localhost</code>, se expone mediante un túnel de Cloudflare (conexión saliente cifrada, sin abrir puertos). El pipeline envía cada informe con la API REST (<code>/api/v2/import-scan/</code>) usando los tipos de escáner de DefectDojo (<i>Gitleaks Scan</i>, <i>Semgrep JSON Report</i>, <i>Trivy Scan</i>, <i>ZAP Scan</i>) y un título de test distinto por herramienta. La subida es automática; no hay pasos manuales.</p>
-<p><b>Evidencia.</b> En la ejecución del 25-11 se importaron 7 tests con 122 hallazgos activos (2 críticos, 106 altos, 3 medios, 6 bajos y 5 informativos; Anexo A, Figuras A4 y A5). Esa cifra incluye duplicados: Semgrep y Trivy imagen se importaron dos veces (dos ejecuciones consecutivas sin <i>reimport</i>), de modo que los hallazgos únicos son 68. Las 14 alertas de ZAP aparecen con su CWE y su SLA (89 días las medias y 119 las bajas).</p>
+<p><b>Evidencia.</b> En la ejecución final (45848736228) el job de importación terminó en verde con «Informes enviados a DefectDojo: 6 de 6 esperados» (Anexo B). En la ejecución del 25-11 se importaron 7 tests con 122 hallazgos activos (2 críticos, 106 altos, 3 medios, 6 bajos y 5 informativos; Anexo A, Figuras A4 y A5). Esa cifra incluye duplicados: Semgrep y Trivy imagen se importaron dos veces (dos ejecuciones consecutivas sin <i>reimport</i>), de modo que los hallazgos únicos son 68. Las 14 alertas de ZAP aparecen con su CWE y su SLA (89 días las medias y 119 las bajas).</p>
 <h2>7.2 Triaje, priorización y falsos positivos</h2>
 <p>Criterio: las vulnerabilidades de las lecciones de WebGoat son el material didáctico y no se corrigen; se registran en DefectDojo como <i>False Positive</i> (no es un defecto no intencionado) o <i>Risk Accepted</i>, siempre con justificación escrita. Lo que queda fuera de las lecciones es real y se prioriza por severidad y SLA (crítica 7 días, alta 30, media 90, baja 120).</p>
 <table>
@@ -205,7 +205,7 @@
 
 <!-- ============ 8. RESULTADOS ============ -->
 <h1>8. Resultados y análisis de las pruebas</h1>
-<h2>8.1 Hallazgos por herramienta (ejecución final 45833277119)</h2>
+<h2>8.1 Hallazgos por herramienta (ejecución final 45848736228)</h2>
 <table>
   <tr><th>Herramienta</th><th>Resultado</th><th>Qué significa</th></tr>
   <tr><td>Gitleaks</td><td>24 detecciones (8 <i>generic-api-key</i>, 14 <i>jwt</i>, 2 <i>private-key</i>)</td><td>Todas en lecciones, documentación o tests: claves de ejemplo. Ningún secreto real</td></tr>
@@ -217,11 +217,11 @@
 </table>
 <h2>8.2 Comparación de ejecuciones</h2>
 <table>
-  <tr><th></th><th>Ejecución 25-11 (45681585355)</th><th>Ejecución 26-11 (45833277119)</th></tr>
+  <tr><th></th><th>Ejecución 25-11 (45681585355)</th><th>Ejecución 26-11 (45848736228)</th></tr>
   <tr><td>Job 1 (Gate A, aviso)</td><td class="ok">Verde</td><td class="ok">Verde</td></tr>
   <tr><td>Job 2 (Gate B, ZAP)</td><td class="ko">Rojo: exit 2 · <code>WARN-NEW: 11</code></td><td class="ko">Rojo: exit 1 · <code>FAIL-NEW: 3</code></td></tr>
   <tr><td>Informes generados</td><td class="am">4 de 6 útiles (Gitleaks y Dependency-Check sin informe válido)</td><td class="ok">6 de 6</td></tr>
-  <tr><td>Importación a DefectDojo</td><td class="am">Verde pero parcial: omitió 2 informes sin avisar</td><td class="am">Rojo con mensaje explícito: túnel no activo (HTTP 000)</td></tr>
+  <tr><td>Importación a DefectDojo</td><td class="am">Verde pero parcial: omitió 2 informes sin avisar</td><td class="ok">Verde: 6 de 6 informes importados</td></tr>
 </table>
 <h2>8.3 Interpretación crítica</h2>
 <ul>
@@ -237,7 +237,7 @@
 <h1>9. Conclusiones y limitaciones</h1>
 <p>El pipeline cumple los cinco objetivos del PAI: se ejecuta automáticamente, integra cinco tipos de análisis, distingue gates de aviso y bloqueantes con ejecución detenida demostrada, y envía los resultados a DefectDojo por API. Respondiendo a la pregunta del cliente, los incidentes tenían causa en que ninguna etapa comprobaba la seguridad; integrar estas comprobaciones en el pipeline hace que cada cambio se revise automáticamente, desplazando la detección a etapas tempranas.</p>
 <p><b>Lecciones aprendidas:</b> (1) verificar cada herramienta con un resultado esperado, no confiar en el color del job; (2) fijar versiones, porque una versión retirada rompió el pipeline; (3) triar con el contexto del proyecto, porque en software de formación la vulnerabilidad es intencionada.</p>
-<div class="box warn"><b>Limitación vigente.</b> DefectDojo se ejecuta en un equipo local con un túnel temporal de Cloudflare cuya dirección cambia al reiniciarse; hay que actualizar el secreto <code>DEFECTDOJO_URL</code> antes de cada ejecución. Con el túnel caído el job de importación falla de forma explícita, como ocurrió en la ejecución 45833277119, por lo que los hallazgos de esa ejecución final no están en DefectDojo; las capturas de DefectDojo de este informe proceden de la ejecución del 25-11. En un entorno real se usaría un túnel nombrado o una instancia con dirección fija.</div>
+<div class="box warn"><b>Limitación de infraestructura.</b> DefectDojo se ejecuta en un equipo local con un túnel temporal de Cloudflare cuya dirección cambia al reiniciarse; hay que actualizar el secreto <code>DEFECTDOJO_URL</code> antes de ejecutar. Con el túnel caído el job de importación falla de forma explícita y con la causa (durante las pruebas ocurrió varias veces: dirección inexistente y túnel desconectado), sin perder los informes, que quedan como artefactos. Las capturas de DefectDojo de este informe proceden de la ejecución del 25-11; la importación de la ejecución final se evidencia en el log. En un entorno real se usaría un túnel nombrado o una instancia con dirección fija.</div>
 <p><b>Mejoras futuras:</b> túnel nombrado de Cloudflare; <i>reimport-scan</i> para deduplicar y cerrar hallazgos; ZAP autenticado y análisis activo; corrección de <code>release.yml</code> y de <code>Dockerfile_desktop</code>; cabeceras de seguridad en la aplicación para que Gate B pueda pasar.</p>
 <p><b>Uso de IA.</b> Se usó un asistente de IA (Claude Code) como apoyo en la revisión y la redacción; cada cambio se verificó ejecutando el pipeline real y las cifras proceden de los informes y logs entregados.</p>
 
@@ -253,7 +253,7 @@
   <li>DefectDojo — https://docs.defectdojo.com/ · API <code>/api/v2/import-scan/</code></li>
   <li>OWASP Dependency-Check — https://owasp.org/www-project-dependency-check/</li>
   <li>Enunciado y presentación del PAI 4, INSEGUS, Universidad de Sevilla, curso 2026-27.</li>
-  <li>Ejecuciones del pipeline: https://github.com/luialacon/webgoat_PAI-4/actions/runs/45681585355 y https://github.com/luialacon/webgoat_PAI-4/actions/runs/45833277119</li>
+  <li>Ejecuciones del pipeline: https://github.com/luialacon/webgoat_PAI-4/actions/runs/45681585355 y https://github.com/luialacon/webgoat_PAI-4/actions/runs/45848736228</li>
 </ul>
 
 <!-- ============ ANEXOS ============ -->
@@ -279,7 +279,7 @@
 10031  IGNORE  User Controllable HTML Element Attribute (Potential XSS)
 10111  IGNORE  Authentication Request Identified
 10112  IGNORE  Session Management Response Identified</pre>
-<p class="small"><b>Log de la ejecución 45833277119</b> (Gate B detenido por ZAP):</p>
+<p class="small"><b>Log de la ejecución 45848736228</b> (Gate B detenido por ZAP):</p>
 <pre>FAIL-NEW: Missing Anti-clickjacking Header [10020] x 5
 FAIL-NEW: Content Security Policy (CSP) Header Not Set [10038] x 5
 FAIL-NEW: Absence of Anti-CSRF Tokens [10202] x 5
@@ -290,7 +290,14 @@ FAIL-NEW: 3  FAIL-INPROG: 0  WARN-NEW: 5  WARN-INPROG: 0  INFO: 0  IGNORE: 3  PA
   --redact --report-format json --report-path gitleaks.json --exit-code 1
 INF 14 commits scanned.   WRN leaks found: 24</pre>
 <p class="small"><b>Trivy IaC</b> (informe <code>trivy-iac-report.json</code>): <code>Dockerfile</code> → 20 comprobaciones superadas, 0 fallos; <code>Dockerfile.desktop</code> → 1 fallo: <code>DS-0002 HIGH Image user should not be 'root'</code>.</p>
-<p class="small"><b>Importación a DefectDojo con túnel caído</b> (mensaje explícito del pipeline): <code>::error::DefectDojo no accesible (HTTP '000'). Si se usa un túnel rápido de Cloudflare, actualizar el secreto DEFECTDOJO_URL.</code></p>
+<p class="small"><b>Importación a DefectDojo</b> (log de la ejecución 45848736228):</p>
+<pre>Subiendo build-static-reports/gitleaks.json (Gitleaks Scan) a DefectDojo...        OK
+Subiendo build-static-reports/semgrep-report.json (Semgrep JSON Report)...         OK
+Subiendo build-static-reports/trivy-sca-report.json (Trivy Scan)...                OK
+Subiendo build-static-reports/trivy-iac-report.json (Trivy Scan)...                OK
+Subiendo staging-dast-reports/trivy-img-report.json (Trivy Scan)...                OK
+Subiendo staging-dast-reports/zap-out/zap-report.xml (ZAP Scan)...                 OK
+Informes enviados a DefectDojo: 6 de 6 esperados</pre>
 
 <h2>Anexo C. Contenido de la entrega (PAI4-ST2.zip)</h2>
 <table>
