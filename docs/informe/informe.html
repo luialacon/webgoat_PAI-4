@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Informe técnico PAI-4 DevSecOps - OWASP WebGoat</title>
+<style>
+  @page { size: A4; margin: 2cm 1.8cm 2cm 1.8cm; @bottom-center { content: counter(page); font: 9pt Calibri, Arial, sans-serif; color:#666 } }
+  @page :first { @bottom-center { content: none } }
+  @page wide { size: A4; margin: 1.5cm 1.2cm; }
+  * { box-sizing: border-box }
+  body { font: 10pt/1.38 Calibri, "Segoe UI", Arial, sans-serif; color:#1b1f24; margin:0 }
+  h1 { font-size: 15pt; color:#0b3d6b; border-bottom:2px solid #0b3d6b; padding-bottom:2px; margin:16px 0 6px; break-after: avoid }
+  h2 { font-size: 11.5pt; color:#0b3d6b; margin:11px 0 4px; break-after: avoid }
+  h3 { font-size: 10.3pt; margin:8px 0 3px; break-after: avoid }
+  p { margin: 3px 0 6px; text-align: justify }
+  ul, ol { margin: 3px 0 6px; padding-left: 18px } li { margin: 1px 0 }
+  code { font: 8.8pt Consolas, "Courier New", monospace; background:#eef1f5; padding:0 2px; border-radius:2px }
+  pre { font: 7.6pt/1.25 Consolas, "Courier New", monospace; background:#f3f5f8; border:1px solid #d6dbe2; padding:6px; margin:4px 0 8px; white-space: pre-wrap; word-break: break-all; break-inside: avoid }
+  table { border-collapse: collapse; width:100%; margin:5px 0 9px; font-size:8.7pt; break-inside: avoid }
+  th, td { border:1px solid #c5cbd3; padding:3px 5px; vertical-align: top; text-align:left }
+  th { background:#0b3d6b; color:#fff; font-weight:600 }
+  tr:nth-child(even) td { background:#f6f8fa }
+  figure { margin: 6px 0 8px; text-align:center; break-inside: avoid }
+  figure img { max-width:100% }
+  figcaption { font-size:8.6pt; color:#444; margin-top:2px; text-align:center }
+  .cover { height: 25.6cm; display:flex; flex-direction:column; justify-content:center; page-break-after: always }
+  .cover .tag { color:#0b3d6b; letter-spacing:2px; font-size:10pt; font-weight:700 }
+  .cover h1 { font-size:26pt; border:none; margin:14px 0 10px; line-height:1.15 }
+  .cover .sub { font-size:12pt; color:#333; margin-bottom:34px }
+  .cover table { width:auto; font-size:10.5pt } .cover td { border:none; padding:3px 18px 3px 0; background:none !important }
+  .box { border-left:4px solid #0b3d6b; background:#eef4fb; padding:5px 9px; margin:6px 0 8px; break-inside: avoid }
+  .warn { border-left-color:#b45309; background:#fdf3e4 }
+  .ok { color:#166534; font-weight:600 } .ko { color:#b91c1c; font-weight:600 } .am { color:#b45309; font-weight:600 }
+  .pb { page-break-before: always }
+  .toc li { list-style:none; margin:2px 0 } .toc { padding-left:0; font-size:10.5pt; columns:1 }
+  .toc ol { padding-left:20px } .small { font-size:8.6pt }
+  .annex img { max-width:100% }
+</style>
+</head>
+<body>
+
+<!-- ============ PORTADA ============ -->
+<section class="cover">
+  <div class="tag">INGENIERÍA DE SEGURIDAD · UNIVERSIDAD DE SEVILLA · PAI 4</div>
+  <h1>Pipeline DevSecOps, quality gates y gestión de vulnerabilidades sobre OWASP WebGoat</h1>
+  <div class="sub">Aseguramiento de la cadena de suministro en el desarrollo de aplicaciones web</div>
+  <table>
+    <tr><td><b>Security Team</b></td><td>Konstantinos Peridis · Raymundo García Pérez · Luis De Alarcón Conradi</td></tr>
+    <tr><td><b>Aplicación de prueba</b></td><td>OWASP WebGoat (Java · Spring Boot · Maven · Docker)</td></tr>
+    <tr><td><b>CI/CD</b></td><td>GitHub Actions</td></tr>
+    <tr><td><b>Herramientas</b></td><td>Gitleaks · Semgrep · Trivy (SCA, IaC, imagen) · OWASP ZAP · DefectDojo</td></tr>
+    <tr><td><b>Repositorio</b></td><td>https://github.com/luialacon/webgoat_PAI-4 (público)</td></tr>
+    <tr><td><b>Fecha</b></td><td>26 de noviembre de 2026</td></tr>
+  </table>
+</section>
+
+<!-- ============ ÍNDICE ============ -->
+<section style="page-break-after: always">
+  <h1 style="margin-top:0">Índice</h1>
+  <ol class="toc">
+    <li>1. Resumen ejecutivo</li>
+    <li>2. Aplicación de prueba y repositorio</li>
+    <li>3. Diseño del pipeline (objetivo 1)
+      <ol><li>3.1 Diagrama del pipeline DevSecOps (1.a)</li><li>3.2 Diagrama de flujo ante una vulnerabilidad (1.b)</li><li>3.3 Decisiones de diseño</li></ol></li>
+    <li>4. Selección y justificación de las herramientas (objetivo 2)</li>
+    <li>5. Implementación e integración en el pipeline (objetivo 3)
+      <ol><li>5.1 Cómo está implementado</li><li>5.2 Cambios respecto al diseño inicial y su motivo</li></ol></li>
+    <li>6. Quality gates (objetivo 4)</li>
+    <li>7. Gestión de vulnerabilidades con DefectDojo (objetivo 5)</li>
+    <li>8. Resultados y análisis de las pruebas</li>
+    <li>9. Conclusiones y limitaciones</li>
+    <li>Referencias</li>
+    <li>Anexos (solo evidencias): A. Capturas · B. Extractos de configuración y logs · C. Contenido de la entrega</li>
+  </ol>
+  <div class="box small"><b>Nota de longitud.</b> El cuerpo del informe (secciones 1 a 9) ocupa menos de las 15 páginas permitidas; portada, índice, referencias y anexos quedan fuera del cómputo, y los anexos contienen únicamente evidencias.</div>
+</section>
+
+<!-- ============ 1. RESUMEN ============ -->
+<h1>1. Resumen ejecutivo</h1>
+<p>El cliente de INSEGUS había sufrido incidentes por vulnerabilidades que llegaron a producción porque su pipeline CI/CD no comprobaba la seguridad del código, de las dependencias ni de la configuración. La respuesta del equipo ha sido construir, sobre OWASP WebGoat (una aplicación vulnerable a propósito), un pipeline DevSecOps en GitHub Actions que se ejecuta solo con cada <i>push</i> o <i>pull request</i> y que incorpora seguridad en tres momentos: <b>al compilar</b> (secretos, SAST, SCA e IaC), <b>sobre la imagen</b> ya construida y <b>sobre la aplicación en ejecución</b> (DAST), enviando todos los resultados a DefectDojo.</p>
+<table>
+  <tr><th>Objetivo</th><th>Estado</th><th>Evidencia principal</th></tr>
+  <tr><td>1. Diseño y montaje del pipeline, con dos diagramas coherentes con la implementación</td><td class="ok">Cumplido</td><td>§3, <code>docs/diagramas/</code>, <code>.github/workflows/devsecops-webgoat-improved.yml</code></td></tr>
+  <tr><td>2. Al menos 3 herramientas de tipos distintos</td><td class="ok">5 tipos: secretos, SAST, SCA, IaC/imagen y DAST</td><td>§4</td></tr>
+  <tr><td>3. Ejecución automática en cada cambio</td><td class="ok">Cumplido</td><td>Disparador <code>push</code> y <code>pull_request</code>; ejecuciones 45681585355 y 45833277119</td></tr>
+  <tr><td>4. Quality gates, uno bloqueante y otros en modo aviso, con ejecución detenida</td><td class="ok">Cumplido</td><td>§6; Gate B detiene el pipeline (ZAP, código de salida 1)</td></tr>
+  <tr><td>5. Gestión centralizada y automática en DefectDojo</td><td class="am">Cumplido con una limitación (ver §7 y §9)</td><td>Importación por API REST; 122 hallazgos importados el 25-11; triaje documentado</td></tr>
+</table>
+<p><b>Resultado clave.</b> En la ejecución final, las cinco herramientas detectan al menos una vulnerabilidad de la aplicación: Gitleaks 24 posibles secretos, Semgrep 31 hallazgos de código, Trivy SCA 23 vulnerabilidades en dependencias (1 crítica y 22 altas), Trivy IaC 1 configuración insegura (contenedor como <i>root</i>) y ZAP 14 alertas dinámicas, 3 de ellas de riesgo medio que <b>bloquean el pipeline</b>. El análisis crítico (§8) separa lo que es ruido o vulnerabilidad didáctica deliberada de lo que es un defecto real a corregir.</p>
+<p><b>Honestidad sobre el estado.</b> El proceso reveló fallos en nuestra primera versión del pipeline (herramientas que ejecutaban sin producir informe) que se detectaron, se corrigieron y se documentan en §5.2. La única limitación vigente es que DefectDojo corre en un equipo local y se alcanza mediante un túnel temporal; cuando éste no está activo, el job de importación falla de forma explícita (§7 y §9).</p>
+
+<!-- ============ 2. APP Y REPO ============ -->
+<h1>2. Aplicación de prueba y repositorio</h1>
+<p>Aplicación: <b>OWASP WebGoat</b>, aplicación Java con Spring Boot que contiene lecciones intencionadamente vulnerables (inyección SQL, XXE, SSRF, JWT, componentes vulnerables...). Se eligió porque su tecnología (Java/Maven/Docker) está bien soportada por las herramientas libres y porque, al ser vulnerable a propósito, garantiza que cada herramienta tiene algo que detectar. Se analiza <b>únicamente la instancia desplegada por el propio equipo</b> (contenedor efímero en el runner, <code>localhost:8080</code>), conforme al uso responsable exigido.</p>
+<p>Repositorio: <b>https://github.com/luialacon/webgoat_PAI-4</b> (público, no requiere dar acceso al profesorado). Rama <code>main</code>. El pipeline está en <code>.github/workflows/devsecops-webgoat-improved.yml</code>; la configuración de herramientas en <code>.gitleaks/config.toml</code> y <code>.zap/rules.tsv</code>; diagramas, evidencias y triaje en <code>docs/</code>. Las credenciales (URL y clave de DefectDojo, ID del engagement) se guardan como <b>secretos del repositorio</b> y nunca aparecen en el código ni en los logs entregados.</p>
+<p>Restricción de diseño: WebGoat es software de formación, por lo que <b>no se corrigen las vulnerabilidades de las lecciones</b> (lo prohíbe su propia guía del proyecto). Esto condiciona el triaje (§7) y explica por qué el pipeline nunca terminará en verde mientras las cabeceras de seguridad de la aplicación no se endurezcan.</p>
+
+<!-- ============ 3. DISEÑO ============ -->
+<h1>3. Diseño del pipeline (objetivo 1)</h1>
+<h2>3.1 Diagrama del pipeline DevSecOps (1.a)</h2>
+<p>La Figura 1 muestra las etapas en orden, la herramienta de cada etapa, el informe que genera, cómo llega a DefectDojo y la posición, modo y umbral de cada quality gate. Corresponde línea a línea con el fichero del pipeline.</p>
+<figure><img src="../diagramas/pipeline.png" style="width:100%"><figcaption><b>Figura 1.</b> Pipeline DevSecOps de WebGoat en GitHub Actions: tres jobs, Gate A en modo aviso y Gate B bloqueante.</figcaption></figure>
+<table>
+  <tr><th>Etapa (job)</th><th>Herramienta · tipo</th><th>Informe</th><th>Gate · modo</th><th>Umbral</th></tr>
+  <tr><td>1 Build + estático</td><td>Gitleaks · secretos</td><td>gitleaks.json</td><td>A · aviso</td><td>Cualquier secreto en todo el historial</td></tr>
+  <tr><td>1</td><td>Semgrep · SAST</td><td>semgrep-report.json</td><td>A · aviso</td><td>Severidad ERROR</td></tr>
+  <tr><td>1</td><td>Trivy fs · SCA (pom.xml)</td><td>trivy-sca-report.json</td><td>A · aviso</td><td>CRITICAL o HIGH</td></tr>
+  <tr><td>1</td><td>Trivy config · IaC (Dockerfiles)</td><td>trivy-iac-report.json</td><td>A · aviso</td><td>CRITICAL o HIGH</td></tr>
+  <tr><td>2 Imagen + DAST</td><td>Trivy image · contenedor</td><td>trivy-img-report.json</td><td>Aviso</td><td>CRITICAL o HIGH</td></tr>
+  <tr><td>2</td><td>OWASP ZAP baseline · DAST</td><td>zap-report.xml</td><td><b>B · bloqueante</b></td><td>Riesgo medio o superior (reglas FAIL)</td></tr>
+  <tr><td>3 Gestión</td><td>DefectDojo (API REST)</td><td>—</td><td>Falla si no se suben los 6 informes</td><td>6 de 6 informes</td></tr>
+</table>
+
+<h2 class="pb">3.2 Diagrama de flujo ante una vulnerabilidad (1.b)</h2>
+<p>La Figura 2 recoge qué ocurre desde que una herramienta detecta algo hasta que se resuelve: decisiones (¿supera el umbral?, ¿la etapa es bloqueante?, ¿es falso positivo?), acción del pipeline (continúa o se detiene), a quién se avisa (GitHub notifica por correo al autor del commit cuando un job falla) y cómo se registra y trata el hallazgo en DefectDojo.</p>
+<figure><img src="../diagramas/flujo.png" style="max-height:19.5cm"><figcaption><b>Figura 2.</b> Flujo de tratamiento de una vulnerabilidad, desde la detección hasta su cierre en DefectDojo.</figcaption></figure>
+
+<h2>3.3 Decisiones de diseño</h2>
+<ul>
+  <li><b>Dos puertas con comportamientos distintos.</b> WebGoat es vulnerable a propósito: un gate bloqueante en la etapa de build impediría llegar siempre al DAST. Por eso el análisis estático (Gate A) <i>informa sin detener</i> y solo el análisis dinámico (Gate B) bloquea.</li>
+  <li><b>Tres jobs encadenados.</b> Separar build/estático, imagen/DAST e importación permite que el DAST analice exactamente la imagen construida y que la importación se ejecute siempre (<code>if: always()</code>), de modo que un bloqueo no impida registrar los hallazgos.</li>
+  <li><b>La imagen se construye una sola vez</b> y se pasa como artefacto, de forma que lo que se escanea es lo que se ejecutaría.</li>
+  <li><b>Seguridad como código.</b> Todo (pipeline, umbrales, reglas de ZAP, configuración de Gitleaks) está versionado en el repositorio y es reproducible.</li>
+  <li><b>Informes siempre conservados</b> como artefactos (<code>if: always()</code>), incluso si un gate falla.</li>
+</ul>
+
+<!-- ============ 4. HERRAMIENTAS ============ -->
+<h1>4. Selección y justificación de las herramientas (objetivo 2)</h1>
+<p>Se han integrado herramientas libres de cinco tipos (el enunciado exige tres). La elección responde a la tecnología de la aplicación (Java/Maven/Docker), a que funcionen sin licencia ni servidor propio dentro de un runner efímero y a que DefectDojo pueda importar sus informes.</p>
+<table>
+  <tr><th>Tipo · herramienta</th><th>Qué analiza y por qué encaja con WebGoat</th><th>Limitaciones</th><th>Alternativas valoradas</th></tr>
+  <tr><td><b>Secretos · Gitleaks</b></td><td>Busca claves, tokens y claves privadas en todo el historial de Git. Un secreto filtrado sigue siendo explotable aunque se borre del último commit.</td><td>Muchos falsos positivos en un proyecto didáctico (claves de ejemplo en lecciones y tests).</td><td>TruffleHog, detect-secrets</td></tr>
+  <tr><td><b>SAST · Semgrep</b></td><td>Analiza el código fuente Java sin ejecutarlo (inyección SQL, XXE, ejecución de comandos, <i>path traversal</i>, SSRF) y también los YAML de GitHub Actions. Es rápido y no necesita compilar.</td><td>Análisis por patrones: no sigue todos los flujos de datos; genera falsos positivos y no ve lo que solo ocurre en ejecución.</td><td>SonarQube (requiere servidor), CodeQL (más lento y profundo)</td></tr>
+  <tr><td><b>SCA · Trivy fs</b></td><td>Compara las dependencias declaradas en <code>pom.xml</code> con su base de CVE. Cubre el riesgo de cadena de suministro (caso Log4Shell).</td><td>Solo ve versiones declaradas/resueltas; no sabe si el código vulnerable se invoca realmente (alcanzabilidad).</td><td>OWASP Dependency-Check (descartado, ver §5.2), Dependabot, Snyk</td></tr>
+  <tr><td><b>IaC · Trivy config</b></td><td>Revisa <code>Dockerfile</code> y <code>Dockerfile_desktop</code> en busca de malas prácticas (usuario <i>root</i>, falta de <i>healthcheck</i>...).</td><td>Solo ficheros de infraestructura; el Dockerfile principal de WebGoat está endurecido, por lo que se amplió a <code>Dockerfile_desktop</code>.</td><td>KICS, Checkov</td></tr>
+  <tr><td><b>Imagen · Trivy image</b></td><td>Analiza las librerías empaquetadas dentro de la imagen final (el <code>.jar</code> y la imagen base), incluyendo lo que no se ve en el <code>pom.xml</code>.</td><td>Duplica parte del SCA; la imagen base puede traer CVE que el equipo no controla.</td><td>Grype, Clair</td></tr>
+  <tr><td><b>DAST · OWASP ZAP baseline</b></td><td>Ataca la aplicación en ejecución como lo haría un atacante externo: cabeceras de seguridad, cookies, protección CSRF. Detecta fallos de configuración que ningún análisis estático ve.</td><td>El modo <i>baseline</i> es pasivo y no autentica: solo explora la página de acceso y de registro, no las lecciones. Un análisis activo y autenticado tardaría mucho más.</td><td>Wapiti, Burp Community (sin automatización)</td></tr>
+  <tr><td><b>Gestión · DefectDojo</b></td><td>Importa los informes de todas las herramientas, deduplica, clasifica y prioriza por SLA, y permite marcar falsos positivos con justificación.</td><td>Requiere una instancia accesible desde el pipeline.</td><td>Otros gestores de vulnerabilidades</td></tr>
+</table>
+<p><b>IAST</b> no se ha incorporado: las soluciones disponibles son comerciales y no se dispuso de licencia; los otros cinco tipos ya cubren desde el código hasta la aplicación en ejecución.</p>
+
+<!-- ============ 5. IMPLEMENTACIÓN ============ -->
+<h1>5. Implementación e integración en el pipeline (objetivo 3)</h1>
+<h2>5.1 Cómo está implementado</h2>
+<p>El workflow <code>PAI-4 DevSecOps WebGoat (Mejorado)</code> se dispara con <code>push</code> y <code>pull_request</code> sobre <code>main</code>. Tiene tres jobs:</p>
+<ol>
+  <li><b>build-and-static-security</b> (Gate A): descarga el código con el historial completo, compila con Maven (Java 21), construye la imagen Docker y la guarda como artefacto, y ejecuta Gitleaks, Semgrep, Trivy SCA y Trivy IaC. Cada análisis usa <code>continue-on-error: true</code> (modo aviso) y los informes se suben como artefacto <code>build-static-reports</code>.</li>
+  <li><b>staging-image-and-dast</b> (Gate B): carga la imagen, la escanea con Trivy (aviso), arranca WebGoat en un contenedor y lanza ZAP baseline con <code>.zap/rules.tsv</code>. Este paso <b>no</b> tiene <code>continue-on-error</code>, por lo que su fallo detiene el pipeline. Los informes se guardan siempre (<code>if: always()</code>).</li>
+  <li><b>import-to-defectdojo</b>: con <code>if: always()</code>, descarga los artefactos y llama a <code>/api/v2/import-scan/</code> con la clave guardada como secreto. Comprueba antes la conexión, envía commit, rama y número de ejecución, y falla si no se suben los 6 informes.</li>
+</ol>
+<p>Todas las herramientas están fijadas a una versión concreta para que el pipeline sea reproducible (Trivy v0.76.2, Gitleaks v8.24.3, acción de Trivy v0.36.0).</p>
+
+<h2>5.2 Cambios respecto al diseño inicial y su motivo</h2>
+<p>La primera versión del pipeline (25 de noviembre) parecía correcta —los jobs salían en verde—, pero el análisis de sus logs reveló defectos que se corrigieron al día siguiente. Los diagramas de la sección 3 reflejan el diseño ya corregido.</p>
+<table>
+  <tr><th>Problema detectado</th><th>Causa (comprobada en el log)</th><th>Corrección</th></tr>
+  <tr><td>Gitleaks no generaba informe y solo miraba el último commit</td><td>La acción <code>gitleaks-action@v2</code> ignora el parámetro <code>args</code> (aviso <i>Unexpected input(s) 'args'</i>)</td><td>Se ejecuta el binario oficial con informe JSON sobre todo el historial. Resultado: 14 commits analizados, 24 detecciones</td></tr>
+  <tr><td>Dependency-Check nunca llegó a DefectDojo</td><td>Escribía el informe fuera de la ruta recogida y su contenedor se rompía con el <code>JAVA_HOME</code> del runner; además exige descargar la base NVD, muy lenta sin clave</td><td><b>Cambio de herramienta SCA</b>: Trivy fs sobre <code>pom.xml</code>, rápido y sin servidor. Detecta 23 vulnerabilidades</td></tr>
+  <tr><td>El gate de ZAP bloqueaba "por casualidad" (código 2 por avisos)</td><td><code>.zap/rules.tsv</code> solo definía 2 reglas en modo aviso</td><td>Umbral explícito: reglas de riesgo medio en <code>FAIL</code>, resto <code>WARN</code>, ruido informativo <code>IGNORE</code></td></tr>
+  <tr><td>La importación "pasaba" aunque faltaran informes</td><td>El script omitía en silencio los ficheros inexistentes</td><td>Cuenta los informes enviados y falla si no son 6; comprobación previa de conexión sin imprimir la URL</td></tr>
+  <tr><td>Trivy dejó de instalarse tras fijar su versión</td><td>La versión v0.65.0 fijada por la acción ya no existe en GitHub</td><td>Acción v0.36.0 con Trivy v0.76.2, verificadas</td></tr>
+  <tr><td>Trivy IaC no encontraba nada</td><td>El Dockerfile principal está endurecido y <code>Dockerfile_desktop</code> no se reconocía por su nombre</td><td>Se copia como <code>Dockerfile.desktop</code> en el runner para analizarlo (hallazgo: ejecuta como <i>root</i>)</td></tr>
+</table>
+
+<!-- ============ 6. QUALITY GATES ============ -->
+<h1>6. Quality gates (objetivo 4)</h1>
+<table>
+  <tr><th>Gate</th><th>Etapa / herramienta</th><th>Modo</th><th>Umbral y cómo se configura</th></tr>
+  <tr><td rowspan="4">A</td><td>Gitleaks</td><td>Aviso</td><td>Cualquier secreto → <code>--exit-code 1</code> + <code>continue-on-error</code></td></tr>
+  <tr><td>Semgrep</td><td>Aviso</td><td>Severidad ERROR → <code>--severity ERROR --error</code> + <code>continue-on-error</code></td></tr>
+  <tr><td>Trivy SCA</td><td>Aviso</td><td>CRITICAL o HIGH → <code>exit-code: 1</code> + <code>continue-on-error</code></td></tr>
+  <tr><td>Trivy IaC</td><td>Aviso</td><td>CRITICAL o HIGH → <code>exit-code: 1</code> + <code>continue-on-error</code></td></tr>
+  <tr><td>—</td><td>Trivy imagen</td><td>Aviso</td><td>CRITICAL o HIGH</td></tr>
+  <tr><td><b>B</b></td><td><b>OWASP ZAP baseline</b></td><td><b>Bloqueante</b></td><td>Reglas 10038 (CSP), 10020 (anti-clickjacking), 10202 (anti-CSRF) en <code>FAIL</code> → código de salida 1 y job en rojo</td></tr>
+</table>
+<p><b>Justificación de los umbrales.</b> En el análisis estático se usa el umbral "crítica o alta", habitual y alineado con el enunciado, pero en modo aviso porque la aplicación es vulnerable a propósito y bloquear aquí impediría llegar al DAST. En ZAP se bloquea a partir de riesgo <b>medio</b>: las reglas de riesgo bajo (cookie <i>SameSite</i>, <i>Permissions-Policy</i>, etc.) son endurecimientos deseables pero no justifican parar una entrega, mientras que la ausencia de CSP, de protección anti-<i>clickjacking</i> y de tokens CSRF afecta directamente a ataques web habituales. Las reglas 10031, 10111 y 10112 son informativas y se ignoran.</p>
+<h3>Demostración del funcionamiento</h3>
+<ul>
+  <li><b>Modo aviso:</b> en la ejecución 45833277119 los pasos de Gitleaks, Semgrep, Trivy SCA y Trivy IaC terminan con código 1 (superan el umbral) y aun así el job 1 acaba en verde y el pipeline continúa hacia el job 2.</li>
+  <li><b>Modo bloqueante:</b> en esa misma ejecución ZAP devuelve <code>FAIL-NEW: 3 … PASS: 57</code> y <code>exit code 1</code>; el job 2 queda en rojo y el despliegue no se produce. En la ejecución del 25-11 ZAP bloqueó con código 2 (<code>WARN-NEW: 11</code>), lo que justificó definir el umbral de forma explícita.</li>
+  <li><b>La visibilidad no se pierde:</b> pese al bloqueo, los informes se guardan y el job de importación se ejecuta (<code>if: always()</code>).</li>
+</ul>
+
+<!-- ============ 7. DEFECTDOJO ============ -->
+<h1>7. Gestión de vulnerabilidades con DefectDojo (objetivo 5)</h1>
+<h2>7.1 Integración</h2>
+<p>DefectDojo se ejecuta en un equipo local del equipo, organizado como <b>producto</b> <code>WebGoat-PAI4</code> con un <b>engagement</b> de CI/CD. Como los runners de GitHub no alcanzan <code>localhost</code>, se expone mediante un túnel de Cloudflare (conexión saliente cifrada, sin abrir puertos). El pipeline envía cada informe con la API REST (<code>/api/v2/import-scan/</code>) usando los tipos de escáner de DefectDojo (<i>Gitleaks Scan</i>, <i>Semgrep JSON Report</i>, <i>Trivy Scan</i>, <i>ZAP Scan</i>) y un título de test distinto por herramienta. La subida es automática; no hay pasos manuales.</p>
+<p><b>Evidencia.</b> En la ejecución del 25-11 se importaron 7 tests con 122 hallazgos activos (2 críticos, 106 altos, 3 medios, 6 bajos y 5 informativos; Anexo A, Figuras A4 y A5). Esa cifra incluye duplicados: Semgrep y Trivy imagen se importaron dos veces (dos ejecuciones consecutivas sin <i>reimport</i>), de modo que los hallazgos únicos son 68. Las 14 alertas de ZAP aparecen con su CWE y su SLA (89 días las medias y 119 las bajas).</p>
+<h2>7.2 Triaje, priorización y falsos positivos</h2>
+<p>Criterio: las vulnerabilidades de las lecciones de WebGoat son el material didáctico y no se corrigen; se registran en DefectDojo como <i>False Positive</i> (no es un defecto no intencionado) o <i>Risk Accepted</i>, siempre con justificación escrita. Lo que queda fuera de las lecciones es real y se prioriza por severidad y SLA (crítica 7 días, alta 30, media 90, baja 120).</p>
+<table>
+  <tr><th>Hallazgo</th><th>Nº</th><th>Decisión</th><th>Justificación</th></tr>
+  <tr><td>Gitleaks: <i>generic-api-key</i>, <i>jwt</i>, <i>private-key</i> en lecciones, documentación y tests</td><td>24</td><td>False Positive</td><td>Claves y tokens de ejemplo de las lecciones JWT y criptografía; ninguna credencial real</td></tr>
+  <tr><td>Semgrep: <i>detected-jwt-token</i></td><td>13</td><td>False Positive</td><td>JWT de ejemplo en documentación y tests</td></tr>
+  <tr><td>Semgrep: SQL formateado/<i>tainted</i>, XXE, <i>ProcessBuilder</i>, <i>path traversal</i>, SSRF en <code>lessons/</code></td><td>17</td><td>Risk Accepted</td><td>Vulnerabilidades deliberadas de las lecciones</td></tr>
+  <tr><td>Trivy SCA e imagen: xstream 1.4.5 (CVE-2013-7285 crítica y 22 altas)</td><td>23 + 23</td><td>Risk Accepted</td><td>Componente vulnerable <b>deliberado</b>: lo usa <code>VulnerableComponentsLesson</code> para enseñar CVE-2013-7285; actualizarlo rompería la lección. Se vigila que no aparezcan otras dependencias vulnerables</td></tr>
+  <tr><td>ZAP 10031, 10111, 10112 (reglas pasivas)</td><td>3</td><td>False Positive / IGNORE</td><td>Sin evidencia de ataque: el campo <i>Attack</i> está vacío en las 4 peticiones (Anexo A, Fig. A7)</td></tr>
+  <tr><td><b>Semgrep <code>run-shell-injection</code> en <code>release.yml:24</code></b></td><td>1</td><td><b>Real · P3</b></td><td>Interpolación directa de <code>${{ }}</code> en un <code>run:</code>; corregir pasando el valor por <code>env:</code></td></tr>
+  <tr><td><b>Trivy IaC DS-0002: <code>Dockerfile_desktop</code> sin <code>USER</code></b></td><td>1</td><td><b>Real · P2</b></td><td>El contenedor de escritorio se ejecuta como <i>root</i>; añadir un usuario sin privilegios</td></tr>
+  <tr><td><b>ZAP: CSP, anti-clickjacking, anti-CSRF</b></td><td>3</td><td><b>Real · P2 (bloquea Gate B)</b></td><td>Cabeceras y protecciones ausentes en la aplicación; configurar Spring Security</td></tr>
+  <tr><td>ZAP: cookie SameSite, Permissions-Policy, X-Content-Type-Options, COEP/COOP/CORP</td><td>6</td><td>Real · P4 (aviso)</td><td>Endurecimiento de cabeceras</td></tr>
+</table>
+<p>Ejemplo de falso positivo documentado: la regla pasiva 10031 de ZAP (<i>User Controllable HTML Element Attribute</i>) señaló los campos del formulario de registro; el detalle de las peticiones muestra el campo <i>Attack</i> vacío, es decir, ZAP no inyectó ninguna carga ni demostró XSS. Se marcó como <i>False Positive</i> con esa justificación (Anexo A, Fig. A7). El documento <code>docs/triaje-vulnerabilidades.md</code> recoge la tabla completa.</p>
+<p>La <b>deduplicación</b> es necesaria porque el mismo componente aparece en dos herramientas (Trivy SCA e imagen) y porque cada ejecución vuelve a importar los mismos hallazgos; la mejora propuesta es usar <i>reimport-scan</i>, que además cierra automáticamente los hallazgos que dejan de detectarse.</p>
+
+<!-- ============ 8. RESULTADOS ============ -->
+<h1>8. Resultados y análisis de las pruebas</h1>
+<h2>8.1 Hallazgos por herramienta (ejecución final 45833277119)</h2>
+<table>
+  <tr><th>Herramienta</th><th>Resultado</th><th>Qué significa</th></tr>
+  <tr><td>Gitleaks</td><td>24 detecciones (8 <i>generic-api-key</i>, 14 <i>jwt</i>, 2 <i>private-key</i>)</td><td>Todas en lecciones, documentación o tests: claves de ejemplo. Ningún secreto real</td></tr>
+  <tr><td>Semgrep</td><td>31 hallazgos ERROR: 13 JWT, 17 de lecciones, 1 de CI/CD</td><td>La mayoría son las vulnerabilidades didácticas; el hallazgo de <code>release.yml</code> es un defecto real del pipeline</td></tr>
+  <tr><td>Trivy SCA</td><td>23 (1 crítica, 22 altas), todas en xstream 1.4.5; todas con versión corregida disponible</td><td>Es la vulnerabilidad que enseña la lección de componentes vulnerables (RCE por deserialización, CVE-2013-7285)</td></tr>
+  <tr><td>Trivy imagen</td><td>23 (1 crítica, 22 altas)</td><td>Mismo conjunto que el SCA: confirma que la dependencia llega a la imagen final</td></tr>
+  <tr><td>Trivy IaC</td><td>1 alta (DS-0002) en <code>Dockerfile_desktop</code>; 0 fallos en <code>Dockerfile</code></td><td>El Dockerfile de producción es correcto (usuario no privilegiado, <i>healthcheck</i>); el de escritorio ejecuta como root</td></tr>
+  <tr><td>OWASP ZAP</td><td>14 alertas: 3 medias, 6 bajas, 5 informativas; <code>PASS: 57</code></td><td>Faltan CSP, protección anti-<i>clickjacking</i> y tokens CSRF; el resto es endurecimiento</td></tr>
+</table>
+<h2>8.2 Comparación de ejecuciones</h2>
+<table>
+  <tr><th></th><th>Ejecución 25-11 (45681585355)</th><th>Ejecución 26-11 (45833277119)</th></tr>
+  <tr><td>Job 1 (Gate A, aviso)</td><td class="ok">Verde</td><td class="ok">Verde</td></tr>
+  <tr><td>Job 2 (Gate B, ZAP)</td><td class="ko">Rojo: exit 2 · <code>WARN-NEW: 11</code></td><td class="ko">Rojo: exit 1 · <code>FAIL-NEW: 3</code></td></tr>
+  <tr><td>Informes generados</td><td class="am">4 de 6 útiles (Gitleaks y Dependency-Check sin informe válido)</td><td class="ok">6 de 6</td></tr>
+  <tr><td>Importación a DefectDojo</td><td class="am">Verde pero parcial: omitió 2 informes sin avisar</td><td class="am">Rojo con mensaje explícito: túnel no activo (HTTP 000)</td></tr>
+</table>
+<h2>8.3 Interpretación crítica</h2>
+<ul>
+  <li><b>Un pipeline en verde no era un pipeline correcto.</b> La primera ejecución parecía satisfactoria y ocultaba que dos herramientas no producían resultados. Solo la lectura de los logs lo reveló; por eso el pipeline actual falla si faltan informes. Cuando una herramienta devuelve 0 hallazgos conviene verificar que se ejecutó: así detectamos que el "0 secretos" inicial de Gitleaks no era fiable.</li>
+  <li><b>El volumen no es riesgo.</b> De 122 hallazgos importados (68 únicos), la gran mayoría son vulnerabilidades didácticas o duplicados. Los defectos reales y accionables son pocos: la inyección de <i>shell</i> en <code>release.yml</code>, el contenedor de escritorio como <i>root</i> y las cabeceras de seguridad. Priorizar por severidad bruta habría llevado a "arreglar" lo que no debe arreglarse.</li>
+  <li><b>El DAST aporta lo que el análisis estático no ve:</b> las tres alertas que bloquean (CSP, <i>clickjacking</i>, CSRF) son fallos de configuración de la aplicación en ejecución que ni Semgrep ni Trivy detectan.</li>
+  <li><b>Gate B nunca estará en verde sin endurecer la aplicación.</b> Es coherente con el objetivo (la app es vulnerable), pero implica que no tenemos una ejecución "que pasa" completa. El camino para conseguirla es corregir las tres cabeceras o relajar el umbral a riesgo alto, decisión que dependería del cliente.</li>
+  <li><b>Falsos positivos.</b> El ruido más claro está en Gitleaks (24 detecciones en claves de ejemplo) y Semgrep (13 JWT). Se mantienen detectados en lugar de excluirlos del análisis para no ocultar los resultados reales en el futuro, y se tratan en DefectDojo.</li>
+  <li><b>Limitaciones del análisis:</b> ZAP baseline explora solo 5 URL sin autenticar, por lo que no cubre las lecciones; Trivy no mide alcanzabilidad; los umbrales se fijaron por criterio razonado y no se calibraron con datos históricos.</li>
+</ul>
+
+<!-- ============ 9. CONCLUSIONES ============ -->
+<h1>9. Conclusiones y limitaciones</h1>
+<p>El pipeline cumple los cinco objetivos del PAI: se ejecuta automáticamente, integra cinco tipos de análisis, distingue gates de aviso y bloqueantes con ejecución detenida demostrada, y envía los resultados a DefectDojo por API. Respondiendo a la pregunta del cliente, los incidentes tenían causa en que ninguna etapa comprobaba la seguridad; integrar estas comprobaciones en el pipeline hace que cada cambio se revise automáticamente, desplazando la detección a etapas tempranas.</p>
+<p><b>Lecciones aprendidas:</b> (1) verificar cada herramienta con un resultado esperado, no confiar en el color del job; (2) fijar versiones, porque una versión retirada rompió el pipeline; (3) triar con el contexto del proyecto, porque en software de formación la vulnerabilidad es intencionada.</p>
+<div class="box warn"><b>Limitación vigente.</b> DefectDojo se ejecuta en un equipo local con un túnel temporal de Cloudflare cuya dirección cambia al reiniciarse; hay que actualizar el secreto <code>DEFECTDOJO_URL</code> antes de cada ejecución. Con el túnel caído el job de importación falla de forma explícita, como ocurrió en la ejecución 45833277119, por lo que los hallazgos de esa ejecución final no están en DefectDojo; las capturas de DefectDojo de este informe proceden de la ejecución del 25-11. En un entorno real se usaría un túnel nombrado o una instancia con dirección fija.</div>
+<p><b>Mejoras futuras:</b> túnel nombrado de Cloudflare; <i>reimport-scan</i> para deduplicar y cerrar hallazgos; ZAP autenticado y análisis activo; corrección de <code>release.yml</code> y de <code>Dockerfile_desktop</code>; cabeceras de seguridad en la aplicación para que Gate B pueda pasar.</p>
+<p><b>Uso de IA.</b> Se usó un asistente de IA (Claude Code) como apoyo en la revisión y la redacción; cada cambio se verificó ejecutando el pipeline real y las cifras proceden de los informes y logs entregados.</p>
+
+<!-- ============ REFERENCIAS ============ -->
+<h1 class="pb">Referencias</h1>
+<ul class="small">
+  <li>OWASP WebGoat — https://owasp.org/www-project-webgoat/</li>
+  <li>GitHub Actions — https://docs.github.com/actions</li>
+  <li>Gitleaks — https://github.com/gitleaks/gitleaks</li>
+  <li>Semgrep Community Edition — https://github.com/semgrep/semgrep</li>
+  <li>Trivy — https://trivy.dev/ · acción https://github.com/aquasecurity/trivy-action</li>
+  <li>OWASP ZAP — https://www.zaproxy.org/ (zap-baseline: https://www.zaproxy.org/docs/docker/baseline-scan/)</li>
+  <li>DefectDojo — https://docs.defectdojo.com/ · API <code>/api/v2/import-scan/</code></li>
+  <li>OWASP Dependency-Check — https://owasp.org/www-project-dependency-check/</li>
+  <li>Enunciado y presentación del PAI 4, INSEGUS, Universidad de Sevilla, curso 2026-27.</li>
+  <li>Ejecuciones del pipeline: https://github.com/luialacon/webgoat_PAI-4/actions/runs/45681585355 y https://github.com/luialacon/webgoat_PAI-4/actions/runs/45833277119</li>
+</ul>
+
+<!-- ============ ANEXOS ============ -->
+<div class="annex">
+<h1 class="pb">Anexos (solo evidencias)</h1>
+<h2>Anexo A. Capturas</h2>
+<figure><img src="../evidencias/capturas/02-ejecucion-25nov-job-gate-b.png" style="width:80%"><figcaption><b>Figura A1.</b> Ejecución 45681585355: el job Gate B termina en rojo en el paso «DAST con OWASP ZAP (Gate B - Bloqueante)»; los informes se guardan igualmente.</figcaption></figure>
+<figure><img src="../evidencias/capturas/01-ejecucion-25nov-zap-exit2.png" style="width:80%"><figcaption><b>Figura A2.</b> Log de ZAP en esa ejecución: <code>WARN-NEW: 11 … PASS: 57</code> y «Process completed with exit code 2».</figcaption></figure>
+<figure><img src="../evidencias/capturas/03-ejecucion-25nov-job-defectdojo.png" style="width:80%"><figcaption><b>Figura A3.</b> El job de importación a DefectDojo se ejecuta tras el bloqueo gracias a <code>if: always()</code>.</figcaption></figure>
+<figure><img src="../evidencias/capturas/04-defectdojo-producto-metricas.png" style="width:70%"><figcaption><b>Figura A4.</b> Producto WebGoat-PAI4 en DefectDojo: 2 críticas, 106 altas, 3 medias, 6 bajas, 5 informativas (122 en total, 68 únicas).</figcaption></figure>
+<figure><img src="../evidencias/capturas/05-defectdojo-hallazgos-zap.png"><figcaption><b>Figura A5.</b> Las 14 alertas de ZAP en DefectDojo con CWE y SLA (89 días las medias, 119 las bajas).</figcaption></figure>
+<figure><img src="../evidencias/capturas/06-defectdojo-detalle-csp.png"><figcaption><b>Figura A6.</b> Detalle del hallazgo «Content Security Policy (CSP) Header Not Set» (regla 10038, riesgo medio) y cinco endpoints afectados.</figcaption></figure>
+<figure><img src="../evidencias/capturas/07-defectdojo-falso-positivo-10031.png"><figcaption><b>Figura A7.</b> Peticiones de la regla 10031: el campo <i>Attack</i> está vacío en las cuatro; motivo para marcarlo como falso positivo.</figcaption></figure>
+
+<h2>Anexo B. Extractos de configuración y logs</h2>
+<p class="small"><b>.zap/rules.tsv</b> (umbral del Gate B):</p>
+<pre>10038  FAIL    Content Security Policy (CSP) Header Not Set
+10020  FAIL    Missing Anti-clickjacking Header
+10202  FAIL    Absence of Anti-CSRF Tokens
+10021  WARN    X-Content-Type-Options Header Missing
+10054  WARN    Cookie without SameSite Attribute
+10063  WARN    Permissions Policy Header Not Set
+10031  IGNORE  User Controllable HTML Element Attribute (Potential XSS)
+10111  IGNORE  Authentication Request Identified
+10112  IGNORE  Session Management Response Identified</pre>
+<p class="small"><b>Log de la ejecución 45833277119</b> (Gate B detenido por ZAP):</p>
+<pre>FAIL-NEW: Missing Anti-clickjacking Header [10020] x 5
+FAIL-NEW: Content Security Policy (CSP) Header Not Set [10038] x 5
+FAIL-NEW: Absence of Anti-CSRF Tokens [10202] x 5
+FAIL-NEW: 3  FAIL-INPROG: 0  WARN-NEW: 5  WARN-INPROG: 0  INFO: 0  IGNORE: 3  PASS: 57
+##[error]Process completed with exit code 1.</pre>
+<p class="small"><b>Gitleaks corregido</b> (extracto del paso del workflow):</p>
+<pre>./gitleaks detect --source . --config .gitleaks/config.toml \
+  --redact --report-format json --report-path gitleaks.json --exit-code 1
+INF 14 commits scanned.   WRN leaks found: 24</pre>
+<p class="small"><b>Trivy IaC</b> (informe <code>trivy-iac-report.json</code>): <code>Dockerfile</code> → 20 comprobaciones superadas, 0 fallos; <code>Dockerfile.desktop</code> → 1 fallo: <code>DS-0002 HIGH Image user should not be 'root'</code>.</p>
+<p class="small"><b>Importación a DefectDojo con túnel caído</b> (mensaje explícito del pipeline): <code>::error::DefectDojo no accesible (HTTP '000'). Si se usa un túnel rápido de Cloudflare, actualizar el secreto DEFECTDOJO_URL.</code></p>
+
+<h2>Anexo C. Contenido de la entrega (PAI4-STX.zip)</h2>
+<table>
+  <tr><th>Elemento</th><th>Ruta</th></tr>
+  <tr><td>Informe técnico (PDF)</td><td><code>Informe_Tecnico_PAI-4_DevSecOps_WebGoat.pdf</code></td></tr>
+  <tr><td>Definición del pipeline</td><td><code>.github/workflows/devsecops-webgoat-improved.yml</code></td></tr>
+  <tr><td>Configuración de herramientas</td><td><code>.zap/rules.tsv</code>, <code>.gitleaks/config.toml</code></td></tr>
+  <tr><td>Diagramas</td><td><code>docs/diagramas/</code> (pipeline.png, flujo.png y fuentes .mmd)</td></tr>
+  <tr><td>Informes de todas las herramientas y log de la ejecución final</td><td><code>docs/evidencias/ejecucion-2026-11-26-final/</code></td></tr>
+  <tr><td>Evidencias de la primera ejecución y capturas de DefectDojo</td><td><code>docs/evidencias/capturas/</code></td></tr>
+  <tr><td>Triaje</td><td><code>docs/triaje-vulnerabilidades.md</code></td></tr>
+</table>
+<p class="small">Los ficheros entregados no contienen credenciales: se comprobó que los logs e informes no incluyen claves, tokens ni la dirección del túnel; las credenciales de DefectDojo son secretos del repositorio.</p>
+</div>
+</body>
+</html>
