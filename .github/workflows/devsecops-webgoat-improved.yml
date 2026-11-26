@@ -62,26 +62,28 @@ jobs:
           pip install semgrep
           semgrep scan --config auto --severity ERROR --error --json -o semgrep-report.json .
 
-      - name: SCA con OWASP Dependency-Check (Gate A - Modo Aviso)
+      - name: SCA con Trivy sobre dependencias Maven (Gate A - Modo Aviso)
         continue-on-error: true
-        uses: dependency-check/Dependency-Check_Action@1.1.0
+        # Cambio de diseño: OWASP Dependency-Check exige descargar la base NVD
+        # (muy lenta o fallida sin clave API) y su contenedor es incompatible con
+        # el JAVA_HOME del runner. Trivy fs analiza pom.xml contra su base de CVE.
+        # Umbral: dependencias con severidad CRITICAL o HIGH => exit 1.
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
-          project: 'WebGoat-PAI4'
-          path: '.'
-          format: 'XML'
-          out: 'reports'
-          # Umbral: cualquier dependencia con CVSS >= 7 (alta/crítica) => exit != 0
-          args: >
-            --failOnCVSS 7
-
-      - name: Copiar informe de Dependency-Check a la raíz
-        if: always()
-        run: cp reports/dependency-check-report.xml . || echo "No se generó informe de Dependency-Check"
+          version: 'v0.76.2'
+          scan-type: 'fs'
+          scan-ref: '.'
+          scanners: 'vuln'
+          severity: 'CRITICAL,HIGH'
+          exit-code: '1'
+          format: 'json'
+          output: 'trivy-sca-report.json'
 
       - name: Seguridad IaC con Trivy Config (Gate A - Modo Aviso)
         continue-on-error: true
-        uses: aquasecurity/trivy-action@v0.33.1
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
+          version: 'v0.76.2'
           scan-type: 'config'
           scan-ref: '.'
           severity: 'CRITICAL,HIGH'
@@ -97,7 +99,7 @@ jobs:
           path: |
             gitleaks.json
             semgrep-report.json
-            dependency-check-report.xml
+            trivy-sca-report.json
             trivy-iac-report.json
 
   staging-image-and-dast:
@@ -119,8 +121,9 @@ jobs:
 
       - name: Escaneo de Vulnerabilidades en Imagen Docker con Trivy (Modo Aviso)
         continue-on-error: true
-        uses: aquasecurity/trivy-action@v0.33.1
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
+          version: 'v0.76.2'
           image-ref: 'webgoat-local:pai4'
           severity: 'CRITICAL,HIGH'
           exit-code: '1'
@@ -177,37 +180,52 @@ jobs:
           RUN_ID: ${{ github.run_id }}
         run: |
           UPLOADED=0
+          # Comprobación previa: no se imprime nunca la URL (puede ser un túnel temporal).
+          PRE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 \
+            -H "Authorization: Token $DD_KEY" "$DD_URL/api/v2/user_profile/" 2>/dev/null || true)
+          if [ "$PRE" != "200" ]; then
+            echo "::error::DefectDojo no accesible (HTTP '$PRE'). Si se usa un túnel rápido de Cloudflare, actualizar el secreto DEFECTDOJO_URL."
+            exit 1
+          fi
+
           upload_scan() {
             local SCAN_TYPE="$1"
             local REPORT_PATH="$2"
+            local TITLE="$3"
             if [ -f "$REPORT_PATH" ]; then
               echo "Subiendo $REPORT_PATH ($SCAN_TYPE) a DefectDojo..."
-              curl -fsS -X POST "$DD_URL/api/v2/import-scan/" \
+              CODE=$(curl -s -o /tmp/dd-response.txt -w "%{http_code}" -X POST "$DD_URL/api/v2/import-scan/" \
                 -H "Authorization: Token $DD_KEY" \
                 -F "engagement=$DD_ENG" \
                 -F "scan_type=$SCAN_TYPE" \
+                -F "test_title=$TITLE" \
                 -F "file=@$REPORT_PATH" \
                 -F "active=true" \
                 -F "verified=false" \
                 -F "commit_hash=$COMMIT_SHA" \
                 -F "branch_tag=$BRANCH_NAME" \
-                -F "build_id=$RUN_ID"
-              UPLOADED=$((UPLOADED+1))
-              echo ""
+                -F "build_id=$RUN_ID" 2>/dev/null || true)
+              if [ "$CODE" = "201" ]; then
+                UPLOADED=$((UPLOADED+1))
+                echo "  OK (HTTP 201)"
+              else
+                echo "::warning::Fallo al importar $REPORT_PATH (HTTP '$CODE')"
+                head -c 300 /tmp/dd-response.txt 2>/dev/null || true; echo ""
+              fi
             else
-              echo "Aviso: no existe $REPORT_PATH, se omite."
+              echo "::warning::No existe $REPORT_PATH, se omite."
             fi
           }
 
-          upload_scan "Gitleaks Scan" "build-static-reports/gitleaks.json"
-          upload_scan "Semgrep JSON Report" "build-static-reports/semgrep-report.json"
-          upload_scan "Dependency Check Scan" "build-static-reports/dependency-check-report.xml"
-          upload_scan "Trivy Scan" "build-static-reports/trivy-iac-report.json"
-          upload_scan "Trivy Scan" "staging-dast-reports/trivy-img-report.json"
-          upload_scan "ZAP Scan" "staging-dast-reports/zap-out/zap-report.xml"
+          upload_scan "Gitleaks Scan" "build-static-reports/gitleaks.json" "Gitleaks - Secretos"
+          upload_scan "Semgrep JSON Report" "build-static-reports/semgrep-report.json" "Semgrep - SAST"
+          upload_scan "Trivy Scan" "build-static-reports/trivy-sca-report.json" "Trivy - SCA dependencias"
+          upload_scan "Trivy Scan" "build-static-reports/trivy-iac-report.json" "Trivy - IaC Dockerfile"
+          upload_scan "Trivy Scan" "staging-dast-reports/trivy-img-report.json" "Trivy - Imagen Docker"
+          upload_scan "ZAP Scan" "staging-dast-reports/zap-out/zap-report.xml" "OWASP ZAP - DAST"
 
           echo "Informes enviados a DefectDojo: $UPLOADED de 6 esperados"
           if [ "$UPLOADED" -lt 6 ]; then
-            echo "::error::Faltan informes: solo se enviaron $UPLOADED de 6. Revisar las herramientas que no generaron informe."
+            echo "::error::Faltan informes: solo se enviaron $UPLOADED de 6."
             exit 1
           fi
