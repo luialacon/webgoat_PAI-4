@@ -194,7 +194,7 @@ jobs:
             *) echo "::error::DEFECTDOJO_URL vacío o sin https:// al principio (longitud: ${#DD_URL})"; exit 1 ;;
           esac
           PRE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 \
-            -H "Authorization: Token $DD_KEY" "$DD_URL/api/v2/user_profile/" 2>/dev/null); RC=$?
+            -H "Authorization: Token $DD_KEY" "$DD_URL/api/v2/user_profile/" 2>/dev/null) && RC=0 || RC=$?
           if [ "$PRE" != "200" ]; then
             echo "::error::DefectDojo no accesible (HTTP $PRE, código curl $RC; 6=no resuelve el nombre, 7=conexión rechazada, 28=tiempo agotado). Si se usa un túnel rápido de Cloudflare, actualizar el secreto DEFECTDOJO_URL."
             exit 1
