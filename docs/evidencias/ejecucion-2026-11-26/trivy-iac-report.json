@@ -1,0 +1,30 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.76.2"
+  },
+  "ReportID": "01a2180b-2c11-74c1-9c00-51d28c7aeb53",
+  "CreatedAt": "2026-11-26T13:28:35.089313613Z",
+  "ArtifactID": "sha256:6d54228b8e5548138579e30409cac360d90a17b260c843615f39b5cfeb9040b9",
+  "ArtifactName": ".",
+  "ArtifactType": "repository",
+  "Metadata": {
+    "RepoURL": "https://github.com/luialacon/webgoat_PAI-4",
+    "Branch": "main",
+    "Commit": "65c1b399bab814ac8adbacfe64b35565ac212ce4",
+    "CommitMsg": "Sustituir Dependency-Check por Trivy SCA, fijar Trivy valido, importacion robusta a DefectDojo\n\nCo-Authored-By: Claude Sonnet 5.5 \u003cnoreply@anthropic.com\u003e\nClaude-Session: https://claude.ai/code/session_01PPQEPJCqBNCe2fesFwbGGj",
+    "Author": "RaimundoNexoNeural \u003craimundo@nexoneural.es\u003e",
+    "Committer": "RaimundoNexoNeural \u003craimundo@nexoneural.es\u003e"
+  },
+  "Results": [
+    {
+      "Target": "Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 20,
+        "Failures": 0
+      }
+    }
+  ]
+}

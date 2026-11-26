@@ -1,0 +1,27 @@
+flowchart TB
+    DEV["Desarrollador: push / pull request a main"] --> J1
+
+    subgraph J1["JOB 1 · Build + análisis estático — GATE A: MODO AVISO (continue-on-error)"]
+        direction LR
+        B1["Maven<br/>Java 21<br/>+ imagen Docker"] --> S1["Gitleaks<br/>SECRETOS<br/>umbral: cualquiera<br/>gitleaks.json"]
+        S1 --> S2["Semgrep<br/>SAST<br/>umbral: ERROR<br/>semgrep-report.json"]
+        S2 --> S3["Trivy fs<br/>SCA pom.xml<br/>umbral: CRIT/HIGH<br/>trivy-sca-report.json"]
+        S3 --> S4["Trivy config<br/>IaC Dockerfile<br/>umbral: CRIT/HIGH<br/>trivy-iac-report.json"]
+    end
+
+    J1 -- "imagen Docker (artefacto)" --> J2
+
+    subgraph J2["JOB 2 · Imagen + staging + DAST — GATE B: BLOQUEANTE"]
+        direction LR
+        T1["Trivy image<br/>IMAGEN DOCKER<br/>MODO AVISO<br/>umbral: CRIT/HIGH<br/>trivy-img-report.json"] --> T2["WebGoat en<br/>contenedor<br/>localhost:8080"]
+        T2 --> T3["OWASP ZAP baseline<br/>DAST<br/>BLOQUEA: riesgo MEDIO o superior<br/>(FAIL en .zap/rules.tsv)<br/>zap-report.xml"]
+    end
+
+    J1 -- "if: always()" --> J3
+    J2 -- "if: always()" --> J3
+    J2 -- "solo si Gate B pasa" --> PROD["Despliegue a producción<br/>(fuera del alcance del PAI)"]
+
+    subgraph J3["JOB 3 · Gestión de vulnerabilidades"]
+        direction LR
+        D1["Importar por API REST<br/>/api/v2/import-scan/<br/>falla si no se suben los 6 informes"] --> DD[("DefectDojo<br/>producto · engagement<br/>triaje · deduplicación<br/>priorización")]
+    end

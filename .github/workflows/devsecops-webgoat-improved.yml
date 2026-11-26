@@ -79,6 +79,11 @@ jobs:
           format: 'json'
           output: 'trivy-sca-report.json'
 
+      - name: Preparar Dockerfile_desktop para el análisis IaC
+        # Trivy solo reconoce nombres Dockerfile, Dockerfile.* o *.Dockerfile.
+        # Se copia (solo en el runner) para que Dockerfile_desktop también se analice.
+        run: cp Dockerfile_desktop Dockerfile.desktop
+
       - name: Seguridad IaC con Trivy Config (Gate A - Modo Aviso)
         continue-on-error: true
         uses: aquasecurity/trivy-action@v0.36.0

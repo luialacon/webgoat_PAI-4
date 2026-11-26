@@ -14,7 +14,7 @@ flowchart LR
         B1[Compilar con Maven<br/>Java 21] --> B2[Construir imagen Docker<br/>webgoat-local:pai4]
         B2 --> S1["Gitleaks · Secretos<br/>umbral: cualquier secreto<br/>→ gitleaks.json"]
         S1 --> S2["Semgrep · SAST<br/>umbral: severidad ERROR<br/>→ semgrep-report.json"]
-        S2 --> S3["OWASP Dependency-Check · SCA<br/>umbral: CVSS ≥ 7<br/>→ dependency-check-report.xml"]
+        S2 --> S3["Trivy fs · SCA (pom.xml)<br/>umbral: CRITICAL, HIGH<br/>→ trivy-sca-report.json"]
         S3 --> S4["Trivy config · IaC (Dockerfile)<br/>umbral: CRITICAL, HIGH<br/>→ trivy-iac-report.json"]
     end
 
@@ -30,7 +30,7 @@ flowchart LR
     J1 -- "siempre (if: always)" --> J3
 
     subgraph J3["Job 3 · Gestión de vulnerabilidades"]
-        D1["Importar a DefectDojo vía API REST<br/>/api/v2/import-scan/<br/>falla si no se suben los 6 informes"]
+        D1["Importar a DefectDojo vía API REST<br/>/api/v2/import-scan/<br/>comprueba conexión y falla si no se suben los 6 informes"]
     end
 
     J2 -- "si Gate B pasa" --> PROD[Despliegue a producción<br/>fuera del alcance del PAI]
@@ -41,7 +41,7 @@ flowchart LR
 |---|---|---|---|---|---|
 | Job 1 | Gitleaks | Secretos | gitleaks.json | A · aviso | cualquier secreto |
 | Job 1 | Semgrep | SAST | semgrep-report.json | A · aviso | severidad ERROR |
-| Job 1 | Dependency-Check | SCA | dependency-check-report.xml | A · aviso | CVSS ≥ 7 |
+| Job 1 | Trivy fs (pom.xml) | SCA | trivy-sca-report.json | A · aviso | CRITICAL / HIGH |
 | Job 1 | Trivy config | IaC | trivy-iac-report.json | A · aviso | CRITICAL / HIGH |
 | Job 2 | Trivy image | Imagen | trivy-img-report.json | aviso | CRITICAL / HIGH |
 | Job 2 | OWASP ZAP | DAST | zap-report.xml | **B · bloqueante** | riesgo medio o superior |

@@ -1,20 +1,26 @@
-# Evidencias de la ejecución del 25-11-2026
+# Evidencias de ejecución del pipeline
 
-Ejecución de GitHub Actions nº 45681585355 (workflow "PAI-4 DevSecOps WebGoat (Mejorado)").
+Repositorio: https://github.com/luialacon/webgoat_PAI-4 — workflow `PAI-4 DevSecOps WebGoat (Mejorado)`.
 
-| Fichero | Contenido |
-|---|---|
-| pipeline-run-45681585355.log | Log completo de los tres jobs |
-| semgrep-report.json | SAST: 31 hallazgos de severidad alta |
-| trivy-img-report.json | Imagen Docker: 23 hallazgos (1 crítica, 22 altas) |
-| trivy-iac-report.json | IaC (Dockerfile): 0 hallazgos CRITICAL/HIGH |
-| zap-report.xml | DAST: 14 alertas (3 medias, 6 bajas, 5 informativas) |
-| gitleaks-results.sarif | Gitleaks de esa ejecución: solo analizó el último commit (fallo corregido después) |
-
-**Limitaciones de esta ejecución (corregidas en el pipeline actual, pendientes de volver a ejecutar):**
-- No hay informe de Dependency-Check: se escribió en una carpeta que el pipeline no recogía.
+## ejecucion-2026-11-25 (primera ejecución completa, run 45681585355)
+Primer pipeline con las cinco herramientas. Importó a DefectDojo (ver capturas en el informe).
+Limitaciones detectadas en el análisis y corregidas después:
 - Gitleaks ignoró sus parámetros: no generó `gitleaks.json` ni analizó todo el historial.
-- Gate B bloqueó con ZAP (exit code 2) por avisos; ahora el umbral está definido en `.zap/rules.tsv`.
+- Dependency-Check escribió el informe en una carpeta que no se recogía (nunca llegó a DefectDojo).
+- Gate B bloqueó con exit code 2 por avisos de ZAP, sin umbral explícito.
 
-Las capturas de DefectDojo y de la ejecución fallida por quality gate deben añadirse a esta carpeta.
-Los ficheros no contienen credenciales (comprobado).
+## ejecucion-2026-11-26 (pipeline corregido, run 45829247962)
+| Fichero | Herramienta | Resultado |
+|---|---|---|
+| gitleaks.json | Gitleaks (secretos, 14 commits) | 24 detecciones (claves de ejemplo de las lecciones y tests) |
+| semgrep-report.json | Semgrep (SAST) | 31 hallazgos de severidad ERROR |
+| trivy-sca-report.json | Trivy fs (SCA, pom.xml) | 23 (1 crítica, 22 altas), todo xstream 1.4.5 |
+| trivy-iac-report.json | Trivy config (Dockerfile) | 0 CRITICAL/HIGH |
+| trivy-img-report.json | Trivy image | 23 (1 crítica, 22 altas) |
+| zap-report.xml | OWASP ZAP baseline (DAST) | 14 alertas; 3 de riesgo medio bloquean (FAIL-NEW: 3, exit code 1) |
+| pipeline-run-45829247962.log | Log completo | Gate A en aviso (verde), Gate B detenido por ZAP |
+
+En esta ejecución el job de importación a DefectDojo se detuvo con un error explícito porque el
+túnel temporal hacia la instancia local de DefectDojo no estaba activo (HTTP 000).
+
+Ningún fichero contiene credenciales (comprobado). Las capturas de DefectDojo están en `capturas/`.
