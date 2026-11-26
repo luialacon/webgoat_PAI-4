@@ -1,0 +1,30 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.76.2"
+  },
+  "ReportID": "01a2141a-60ff-7e32-9192-e2abf120a11c",
+  "CreatedAt": "2026-11-25T19:06:42.815932744Z",
+  "ArtifactID": "sha256:02a688c283dfd892ec7585100b3801e2af6edc3a5cd4c66bf07f991ddd9e7330",
+  "ArtifactName": ".",
+  "ArtifactType": "repository",
+  "Metadata": {
+    "RepoURL": "https://github.com/luialacon/webgoat_PAI-4",
+    "Branch": "main",
+    "Commit": "42ef5d93e0cda3229795fc53d574c24982f6e1cc",
+    "CommitMsg": "Corregir salida XML y artefacto de OWASP ZAP en Gate B",
+    "Author": "Luis Alarcon Conradi \u003cluialacon@alum.us.es\u003e",
+    "Committer": "Luis Alarcon Conradi \u003cluialacon@alum.us.es\u003e"
+  },
+  "Results": [
+    {
+      "Target": "Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 20,
+        "Failures": 0
+      }
+    }
+  ]
+}

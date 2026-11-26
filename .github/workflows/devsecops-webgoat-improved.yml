@@ -47,12 +47,13 @@ jobs:
 
       - name: Escaneo de Secretos con Gitleaks (Gate A - Modo Aviso)
         continue-on-error: true
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITLEAKS_CONFIG: .gitleaks/config.toml
-        with:
-          args: --report-format json --report-path gitleaks.json
+        # Se ejecuta el binario oficial (versión fijada) porque la acción
+        # gitleaks-action@v2 ignora 'args' y no genera gitleaks.json.
+        # Analiza TODO el historial (fetch-depth: 0). Umbral: cualquier secreto => exit 1.
+        run: |
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v8.24.3/gitleaks_8.24.3_linux_x64.tar.gz" | tar -xz gitleaks
+          ./gitleaks detect --source . --config .gitleaks/config.toml \
+            --redact --report-format json --report-path gitleaks.json --exit-code 1
 
       - name: SAST con Semgrep (Gate A - Modo Aviso)
         continue-on-error: true
@@ -63,18 +64,23 @@ jobs:
 
       - name: SCA con OWASP Dependency-Check (Gate A - Modo Aviso)
         continue-on-error: true
-        uses: dependency-check/Dependency-Check_Action@main
+        uses: dependency-check/Dependency-Check_Action@1.1.0
         with:
           project: 'WebGoat-PAI4'
           path: '.'
           format: 'XML'
+          out: 'reports'
+          # Umbral: cualquier dependencia con CVSS >= 7 (alta/crítica) => exit != 0
           args: >
             --failOnCVSS 7
-            --out .
+
+      - name: Copiar informe de Dependency-Check a la raíz
+        if: always()
+        run: cp reports/dependency-check-report.xml . || echo "No se generó informe de Dependency-Check"
 
       - name: Seguridad IaC con Trivy Config (Gate A - Modo Aviso)
         continue-on-error: true
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.33.1
         with:
           scan-type: 'config'
           scan-ref: '.'
@@ -113,7 +119,7 @@ jobs:
 
       - name: Escaneo de Vulnerabilidades en Imagen Docker con Trivy (Modo Aviso)
         continue-on-error: true
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.33.1
         with:
           image-ref: 'webgoat-local:pai4'
           severity: 'CRITICAL,HIGH'
@@ -158,13 +164,19 @@ jobs:
       - name: Descargar todos los informes generados
         continue-on-error: true
         uses: actions/download-artifact@v4
+        with:
+          pattern: '*-reports'
 
       - name: Enviar informes a DefectDojo vía API REST
         env:
           DD_URL: ${{ secrets.DEFECTDOJO_URL }}
           DD_KEY: ${{ secrets.DEFECTDOJO_API_KEY }}
           DD_ENG: ${{ secrets.DEFECTDOJO_ENGAGEMENT_ID }}
+          COMMIT_SHA: ${{ github.sha }}
+          BRANCH_NAME: ${{ github.ref_name }}
+          RUN_ID: ${{ github.run_id }}
         run: |
+          UPLOADED=0
           upload_scan() {
             local SCAN_TYPE="$1"
             local REPORT_PATH="$2"
@@ -176,7 +188,11 @@ jobs:
                 -F "scan_type=$SCAN_TYPE" \
                 -F "file=@$REPORT_PATH" \
                 -F "active=true" \
-                -F "verified=false"
+                -F "verified=false" \
+                -F "commit_hash=$COMMIT_SHA" \
+                -F "branch_tag=$BRANCH_NAME" \
+                -F "build_id=$RUN_ID"
+              UPLOADED=$((UPLOADED+1))
               echo ""
             else
               echo "Aviso: no existe $REPORT_PATH, se omite."
@@ -189,3 +205,9 @@ jobs:
           upload_scan "Trivy Scan" "build-static-reports/trivy-iac-report.json"
           upload_scan "Trivy Scan" "staging-dast-reports/trivy-img-report.json"
           upload_scan "ZAP Scan" "staging-dast-reports/zap-out/zap-report.xml"
+
+          echo "Informes enviados a DefectDojo: $UPLOADED de 6 esperados"
+          if [ "$UPLOADED" -lt 6 ]; then
+            echo "::error::Faltan informes: solo se enviaron $UPLOADED de 6. Revisar las herramientas que no generaron informe."
+            exit 1
+          fi
