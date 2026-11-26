@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<OWASPZAPReport programName="ZAP" version="2.17.0" generated="Thu, 26 Nov 2026 13:30:40" created="2026-11-26T13:30:40.273138885Z">
+<OWASPZAPReport programName="ZAP" version="2.17.0" generated="Thu, 26 Nov 2026 13:55:55" created="2026-11-26T13:55:55.368574325Z">
 	
 		<site name="http://localhost:8080" host="localhost" port="8080" ssl="false">
 			<alerts>
@@ -408,6 +408,17 @@
 							
 							
 								<instance>
+									<uri>http://localhost:8080/WebGoat/css/animate.css</uri>
+									<nodeName>http://localhost:8080/WebGoat/css/animate.css</nodeName>
+									<method>GET</method>
+									<param>Cross-Origin-Resource-Policy</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
 									<uri>http://localhost:8080/WebGoat/css/font-awesome.min.css</uri>
 									<nodeName>http://localhost:8080/WebGoat/css/font-awesome.min.css</nodeName>
 									<method>GET</method>
@@ -419,8 +430,8 @@
 							
 							
 								<instance>
-									<uri>http://localhost:8080/WebGoat/css/img/favicon.ico</uri>
-									<nodeName>http://localhost:8080/WebGoat/css/img/favicon.ico</nodeName>
+									<uri>http://localhost:8080/WebGoat/css/main.css</uri>
+									<nodeName>http://localhost:8080/WebGoat/css/main.css</nodeName>
 									<method>GET</method>
 									<param>Cross-Origin-Resource-Policy</param>
 									<attack></attack>
@@ -432,17 +443,6 @@
 								<instance>
 									<uri>http://localhost:8080/WebGoat/login</uri>
 									<nodeName>http://localhost:8080/WebGoat/login</nodeName>
-									<method>GET</method>
-									<param>Cross-Origin-Resource-Policy</param>
-									<attack></attack>
-									<evidence></evidence>
-									<otherinfo></otherinfo>
-								</instance>
-							
-							
-								<instance>
-									<uri>http://localhost:8080/WebGoat/plugins/bootstrap/css/bootstrap.min.css</uri>
-									<nodeName>http://localhost:8080/WebGoat/plugins/bootstrap/css/bootstrap.min.css</nodeName>
 									<method>GET</method>
 									<param>Cross-Origin-Resource-Policy</param>
 									<attack></attack>
@@ -656,7 +656,7 @@ referer=http://localhost:8080/WebGoat/login</otherinfo>
 						<reference>&lt;p&gt;https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/&lt;/p&gt;</reference>
 						<cweid>-1</cweid>
 						<wascid>-1</wascid>
-						<sourceid>36</sourceid>
+						<sourceid>32</sourceid>
 					</alertitem>
 				
 				
@@ -712,7 +712,7 @@ referer=http://localhost:8080/WebGoat/login</otherinfo>
 						<reference>&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7234&lt;/p&gt;&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7231&lt;/p&gt;&lt;p&gt;https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html&lt;/p&gt;</reference>
 						<cweid>524</cweid>
 						<wascid>13</wascid>
-						<sourceid>10</sourceid>
+						<sourceid>11</sourceid>
 					</alertitem>
 				
 				
@@ -774,19 +774,8 @@ referer=http://localhost:8080/WebGoat/login</otherinfo>
 							
 							
 								<instance>
-									<uri>http://localhost:8080/WebGoat/login</uri>
-									<nodeName>http://localhost:8080/WebGoat/login</nodeName>
-									<method>GET</method>
-									<param></param>
-									<attack></attack>
-									<evidence></evidence>
-									<otherinfo>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</otherinfo>
-								</instance>
-							
-							
-								<instance>
-									<uri>http://localhost:8080/robots.txt</uri>
-									<nodeName>http://localhost:8080/robots.txt</nodeName>
+									<uri>http://localhost:8080/WebGoat</uri>
+									<nodeName>http://localhost:8080/WebGoat</nodeName>
 									<method>GET</method>
 									<param></param>
 									<attack></attack>
@@ -806,14 +795,14 @@ referer=http://localhost:8080/WebGoat/login</otherinfo>
 								</instance>
 							
 						</instances>
-						<count>4</count>
+						<count>3</count>
 						<systemic>true</systemic>
 						<solution>&lt;p&gt;Validate that the response does not contain sensitive, personal or user-specific information. If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:&lt;/p&gt;&lt;p&gt;Cache-Control: no-cache, no-store, must-revalidate, private&lt;/p&gt;&lt;p&gt;Pragma: no-cache&lt;/p&gt;&lt;p&gt;Expires: 0&lt;/p&gt;&lt;p&gt;This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.&lt;/p&gt;</solution>
 						<otherinfo>&lt;p&gt;In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.&lt;/p&gt;</otherinfo>
 						<reference>&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7234&lt;/p&gt;&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7231&lt;/p&gt;&lt;p&gt;https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html&lt;/p&gt;</reference>
 						<cweid>524</cweid>
 						<wascid>13</wascid>
-						<sourceid>3</sourceid>
+						<sourceid>7</sourceid>
 					</alertitem>
 				
 				
@@ -1020,16 +1009,6 @@ zap</otherinfo>
 					<key>insight.endpoint.total</key>
 					<description>Count of total endpoints</description>
 					<statistic>16</statistic>
-				</insight>
-			
-			
-				<insight>
-					<level>Info</level>
-					<reason>Informational</reason>
-					<site>http://localhost:8080</site>
-					<key>insight.response.slow</key>
-					<description>Percentage of slow responses</description>
-					<statistic>5</statistic>
 				</insight>
 			
 		</insights>

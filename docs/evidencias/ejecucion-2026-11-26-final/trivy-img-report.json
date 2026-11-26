@@ -3,9 +3,9 @@
   "Trivy": {
     "Version": "0.76.2"
   },
-  "ReportID": "01a2180c-0575-7c4c-9748-7d38fd8fb96e",
-  "CreatedAt": "2026-11-26T13:29:30.741807029Z",
-  "ArtifactID": "sha256:92d20b3858759ab951e221797ba4e9d1e93e6e516614324c80ed0c5cdeb3ebe6",
+  "ReportID": "01a21823-237d-7729-94a7-4bd3e54be3a9",
+  "CreatedAt": "2026-11-26T13:54:45.757471349Z",
+  "ArtifactID": "sha256:e3e12952b19371f8d1a94045968e143e23770da42b718a3d16a451fd318ec29d",
   "ArtifactName": "webgoat-local:pai4",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -14,27 +14,27 @@
       "Family": "ubuntu",
       "Name": "24.04"
     },
-    "ImageID": "sha256:ea895f4e6bc00bc16a22211880e936dd0a525c57f91b8fae846e29adb7bd8e2f",
+    "ImageID": "sha256:858c7fa15587eb446ee8b993c2015339e20b5560cda822c56c8355fab8ab842d",
     "DiffIDs": [
       "sha256:369ede38a92da8cd72a76f15f37e496def401830f3c8b7d39c0c7695682a51ce",
       "sha256:b7ec8977528099ae801c493b21abb5b2fac685d55afcc6b1fb5da9991439ac36",
       "sha256:2d072a5c34a1e84925a83eae31d33955810694a8334fe87e0db9a64e9da7135f",
       "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
       "sha256:56cba8199b0fc3b30779ab20e65d502188f2b71bcab86b4262bec4c93f816d36",
-      "sha256:96b7fb351ddda958ce0a93e7a64eed53742c6590a3d50a743afa12bd15676621",
-      "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b",
+      "sha256:658bbd98b4239b6c1a34a475319d84b2d9fe728033538772969d325ad7b1992a",
+      "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837",
       "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
     ],
     "RepoTags": [
       "webgoat-local:pai4"
     ],
     "RepoDigests": [
-      "webgoat-local@sha256:ea895f4e6bc00bc16a22211880e936dd0a525c57f91b8fae846e29adb7bd8e2f"
+      "webgoat-local@sha256:858c7fa15587eb446ee8b993c2015339e20b5560cda822c56c8355fab8ab842d"
     ],
     "Reference": "webgoat-local:pai4",
     "ImageConfig": {
       "architecture": "amd64",
-      "created": "2026-11-26T13:27:33.186399815Z",
+      "created": "2026-11-26T13:52:27.705144054Z",
       "history": [
         {
           "created": "2026-11-10T18:35:15Z",
@@ -117,64 +117,64 @@
           "empty_layer": true
         },
         {
-          "created": "2026-11-26T13:27:32Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "LABEL name=WebGoat: A deliberately insecure Web Application",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2026-11-26T13:27:32Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "LABEL maintainer=WebGoat team",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2026-11-26T13:27:32Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "RUN /bin/sh -c useradd -ms /bin/bash webgoat \u0026\u0026   chgrp -R 0 /home/webgoat \u0026\u0026   chmod -R g=u /home/webgoat # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2026-11-26T13:27:32Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "USER webgoat",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2026-11-26T13:27:33Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "COPY --chown=webgoat target/webgoat-*.jar /home/webgoat/webgoat.jar # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2026-11-26T13:27:33Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "EXPOSE [8080/tcp]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2026-11-26T13:27:33Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "EXPOSE [9090/tcp]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2026-11-26T13:27:33Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "ENV TZ=Europe/Amsterdam",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2026-11-26T13:27:33Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "WORKDIR /home/webgoat",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2026-11-26T13:27:33Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "ENTRYPOINT [\"java\" \"-Duser.home=/home/webgoat\" \"-Dfile.encoding=UTF-8\" \"--add-opens\" \"java.base/java.lang=ALL-UNNAMED\" \"--add-opens\" \"java.base/java.util=ALL-UNNAMED\" \"--add-opens\" \"java.base/java.lang.reflect=ALL-UNNAMED\" \"--add-opens\" \"java.base/java.text=ALL-UNNAMED\" \"--add-opens\" \"java.desktop/java.beans=ALL-UNNAMED\" \"--add-opens\" \"java.desktop/java.awt.font=ALL-UNNAMED\" \"--add-opens\" \"java.base/sun.nio.ch=ALL-UNNAMED\" \"--add-opens\" \"java.base/java.io=ALL-UNNAMED\" \"--add-opens\" \"java.base/java.util=ALL-UNNAMED\" \"--add-opens\" \"java.base/sun.nio.ch=ALL-UNNAMED\" \"--add-opens\" \"java.base/java.io=ALL-UNNAMED\" \"-Drunning.in.docker=true\" \"-jar\" \"webgoat.jar\" \"--server.address=0.0.0.0\"]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2026-11-26T13:27:33Z",
+          "created": "2026-11-26T13:52:27Z",
           "created_by": "HEALTHCHECK \u0026{[\"CMD-SHELL\" \"curl --fail http://localhost:8080/WebGoat/actuator/health || exit 1\"] \"5s\" \"3s\" \"0s\" \"0s\" '\\x00'}",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
@@ -189,8 +189,8 @@
           "sha256:2d072a5c34a1e84925a83eae31d33955810694a8334fe87e0db9a64e9da7135f",
           "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
           "sha256:56cba8199b0fc3b30779ab20e65d502188f2b71bcab86b4262bec4c93f816d36",
-          "sha256:96b7fb351ddda958ce0a93e7a64eed53742c6590a3d50a743afa12bd15676621",
-          "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b",
+          "sha256:658bbd98b4239b6c1a34a475319d84b2d9fe728033538772969d325ad7b1992a",
+          "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837",
           "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
         ]
       },
@@ -284,13 +284,13 @@
       },
       {
         "Size": 24064,
-        "Digest": "sha256:62f572e0af7ddd4322ee0ba0edbaa7938ce2976ae7148150689ede45a8e87b9a",
-        "DiffID": "sha256:96b7fb351ddda958ce0a93e7a64eed53742c6590a3d50a743afa12bd15676621"
+        "Digest": "sha256:51249a3db7bc1f5a60c8d5963545c51811bd4b9a5c8651319bad06deebef336c",
+        "DiffID": "sha256:658bbd98b4239b6c1a34a475319d84b2d9fe728033538772969d325ad7b1992a"
       },
       {
         "Size": 175005184,
-        "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-        "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+        "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+        "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
       },
       {
         "Size": 1024,
@@ -9680,8 +9680,8 @@
           },
           "Version": "3.3.0",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/cglib-nodep-3.3.0.jar",
           "AnalyzedBy": "jar"
@@ -9694,8 +9694,8 @@
           },
           "Version": "3.3.0",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/cglib-nodep-3.3.0.jar",
           "AnalyzedBy": "jar"
@@ -9712,8 +9712,8 @@
             "LGPL-2.1-only"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/logback-classic-1.5.38.jar",
           "AnalyzedBy": "jar"
@@ -9730,8 +9730,8 @@
             "LGPL-2.1-only"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/logback-core-1.5.38.jar",
           "AnalyzedBy": "jar"
@@ -9747,8 +9747,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/fastdoubleparser-2.0.1.jar",
           "AnalyzedBy": "jar"
@@ -9761,8 +9761,8 @@
           },
           "Version": "4.6.2",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/java-jwt-4.6.2.jar",
           "AnalyzedBy": "jar"
@@ -9775,8 +9775,8 @@
           },
           "Version": "0.24.1",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jwks-rsa-0.24.1.jar",
           "AnalyzedBy": "jar"
@@ -9789,8 +9789,8 @@
           },
           "Version": "1.7.5",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/log-1.7.5.jar",
           "AnalyzedBy": "jar"
@@ -9803,8 +9803,8 @@
           },
           "Version": "1.7.5",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/runtime-1.7.5.jar",
           "AnalyzedBy": "jar"
@@ -9817,8 +9817,8 @@
           },
           "Version": "1.7.5",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/wasi-1.7.5.jar",
           "AnalyzedBy": "jar"
@@ -9831,8 +9831,8 @@
           },
           "Version": "1.7.5",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/wasm-1.7.5.jar",
           "AnalyzedBy": "jar"
@@ -9848,8 +9848,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jackson-annotations-2.21.jar",
           "AnalyzedBy": "jar"
@@ -9865,8 +9865,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jackson-core-2.21.7.jar",
           "AnalyzedBy": "jar"
@@ -9882,8 +9882,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jackson-databind-2.21.7.jar",
           "AnalyzedBy": "jar"
@@ -9899,8 +9899,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jackson-datatype-jsr310-2.21.7.jar",
           "AnalyzedBy": "jar"
@@ -9916,8 +9916,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/classmate-1.7.3.jar",
           "AnalyzedBy": "jar"
@@ -9933,8 +9933,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jffi-1.4.3-native.jar",
           "AnalyzedBy": "jar"
@@ -9951,8 +9951,8 @@
             "LGPL-3.0-only"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jffi-1.4.3.jar",
           "AnalyzedBy": "jar"
@@ -9968,8 +9968,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jnr-a64asm-1.0.0.jar",
           "AnalyzedBy": "jar"
@@ -9985,8 +9985,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jnr-constants-0.11.2.jar",
           "AnalyzedBy": "jar"
@@ -10002,8 +10002,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jnr-enxio-0.33.3.jar",
           "AnalyzedBy": "jar"
@@ -10019,8 +10019,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jnr-ffi-2.3.3.jar",
           "AnalyzedBy": "jar"
@@ -10036,8 +10036,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jnr-netdb-1.2.0.jar",
           "AnalyzedBy": "jar"
@@ -10055,8 +10055,8 @@
             "LGPL-2.1-only"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jnr-posix-3.2.4.jar",
           "AnalyzedBy": "jar"
@@ -10072,8 +10072,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jnr-unixsocket-0.39.5.jar",
           "AnalyzedBy": "jar"
@@ -10089,8 +10089,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jnr-x86asm-1.0.2.jar",
           "AnalyzedBy": "jar"
@@ -10106,8 +10106,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jcip-annotations-1.0-1.jar",
           "AnalyzedBy": "jar"
@@ -10123,8 +10123,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/nimbus-jose-jwt-10.9.1.jar",
           "AnalyzedBy": "jar"
@@ -10140,8 +10140,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/nimbus-jose-jwt-10.9.1.jar",
           "AnalyzedBy": "jar"
@@ -10157,8 +10157,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -10174,8 +10174,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -10191,8 +10191,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/error_prone_annotations-2.50.0.jar",
           "AnalyzedBy": "jar"
@@ -10208,8 +10208,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/failureaccess-1.0.3.jar",
           "AnalyzedBy": "jar"
@@ -10225,8 +10225,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/guava-33.7.2-jre.jar",
           "AnalyzedBy": "jar"
@@ -10239,8 +10239,8 @@
           },
           "Version": "9999.0-empty-to-avoid-conflict-with-guava",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
           "AnalyzedBy": "jar"
@@ -10256,8 +10256,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/j2objc-annotations-3.1.jar",
           "AnalyzedBy": "jar"
@@ -10273,8 +10273,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/backport9-1.13.jar",
           "AnalyzedBy": "jar"
@@ -10290,8 +10290,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/invokebinder-1.16.jar",
           "AnalyzedBy": "jar"
@@ -10307,8 +10307,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/options-1.6.jar",
           "AnalyzedBy": "jar"
@@ -10324,8 +10324,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/content-type-2.3.jar",
           "AnalyzedBy": "jar"
@@ -10341,8 +10341,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/lang-tag-1.7.jar",
           "AnalyzedBy": "jar"
@@ -10358,8 +10358,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/nimbus-jose-jwt-10.9.1.jar",
           "AnalyzedBy": "jar"
@@ -10375,8 +10375,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/oauth2-oidc-sdk-11.38.2.jar",
           "AnalyzedBy": "jar"
@@ -10389,8 +10389,8 @@
           },
           "Version": "1.9.0",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/zxcvbn-1.9.0.jar",
           "AnalyzedBy": "jar"
@@ -10403,8 +10403,8 @@
           },
           "Version": "4.1.2",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/com.sun.xml.bind-jaxb-core-4.0.9.jar",
           "AnalyzedBy": "jar"
@@ -10420,8 +10420,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/istack-commons-runtime-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -10434,8 +10434,8 @@
           },
           "Version": "4.0.9",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/com.sun.xml.bind-jaxb-core-4.0.9.jar",
           "AnalyzedBy": "jar"
@@ -10448,8 +10448,8 @@
           },
           "Version": "4.0.9",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jaxb-impl-4.0.9.jar",
           "AnalyzedBy": "jar"
@@ -10462,8 +10462,8 @@
           },
           "Version": "1.4.5",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/xstream-1.4.5.jar",
           "AnalyzedBy": "jar"
@@ -10479,8 +10479,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/HikariCP-7.0.2.jar",
           "AnalyzedBy": "jar"
@@ -10493,8 +10493,8 @@
           },
           "Version": "1.22.1",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -10510,8 +10510,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/commons-io-2.22.0.jar",
           "AnalyzedBy": "jar"
@@ -10527,8 +10527,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/commons-logging-1.3.6.jar",
           "AnalyzedBy": "jar"
@@ -10541,8 +10541,8 @@
           },
           "Version": "2.4.48",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -10555,8 +10555,8 @@
           },
           "Version": "2.4.48",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -10569,8 +10569,8 @@
           },
           "Version": "2.4.48",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -10583,8 +10583,8 @@
           },
           "Version": "2.4.48",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/context-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -10600,8 +10600,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jjwt-0.9.1.jar",
           "AnalyzedBy": "jar"
@@ -10617,8 +10617,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/micrometer-commons-1.17.2.jar",
           "AnalyzedBy": "jar"
@@ -10634,8 +10634,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/micrometer-core-1.17.2.jar",
           "AnalyzedBy": "jar"
@@ -10651,8 +10651,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/micrometer-jakarta9-1.17.2.jar",
           "AnalyzedBy": "jar"
@@ -10668,8 +10668,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/micrometer-observation-1.17.2.jar",
           "AnalyzedBy": "jar"
@@ -10682,8 +10682,8 @@
           },
           "Version": "0.0.5",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/redline-0.0.5.jar",
           "AnalyzedBy": "jar"
@@ -10696,8 +10696,8 @@
           },
           "Version": "0.0.5",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/redline-api-0.0.5.jar",
           "AnalyzedBy": "jar"
@@ -10710,8 +10710,8 @@
           },
           "Version": "0.0.5",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/redline-bridge-0.0.5.jar",
           "AnalyzedBy": "jar"
@@ -10724,8 +10724,8 @@
           },
           "Version": "0.0.5",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/redline-runner-jffi-0.0.5.jar",
           "AnalyzedBy": "jar"
@@ -10741,8 +10741,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jakarta.activation-api-2.1.4.jar",
           "AnalyzedBy": "jar"
@@ -10759,8 +10759,8 @@
             "GPL-2.0-with-classpath-exception"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jakarta.annotation-api-3.0.0.jar",
           "AnalyzedBy": "jar"
@@ -10776,8 +10776,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jakarta.inject-api-2.0.1.jar",
           "AnalyzedBy": "jar"
@@ -10794,8 +10794,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jakarta.persistence-api-3.2.0.jar",
           "AnalyzedBy": "jar"
@@ -10812,8 +10812,8 @@
             "GPL-2.0-with-classpath-exception"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jakarta.servlet-api-6.1.0.jar",
           "AnalyzedBy": "jar"
@@ -10830,8 +10830,8 @@
             "GPL-2.0-with-classpath-exception"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jakarta.transaction-api-2.0.1.jar",
           "AnalyzedBy": "jar"
@@ -10847,8 +10847,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jakarta.validation-api-3.1.1.jar",
           "AnalyzedBy": "jar"
@@ -10864,8 +10864,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jakarta.xml.bind-api-4.0.5.jar",
           "AnalyzedBy": "jar"
@@ -10882,8 +10882,8 @@
             "GPL-2.0-only"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/javax.activation-api-1.2.0.jar",
           "AnalyzedBy": "jar"
@@ -10900,8 +10900,8 @@
             "GPL-2.0-with-classpath-exception"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jaxb-api-2.3.1.jar",
           "AnalyzedBy": "jar"
@@ -10917,8 +10917,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jline/jline/2.14.6/jline-2.14.6.jar",
           "AnalyzedBy": "jar"
@@ -10934,8 +10934,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/joda-time-2.14.0.jar",
           "AnalyzedBy": "jar"
@@ -10951,8 +10951,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jitescript-0.4.1.jar",
           "AnalyzedBy": "jar"
@@ -10968,8 +10968,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/byte-buddy-1.18.15.jar",
           "AnalyzedBy": "jar"
@@ -10985,8 +10985,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/accessors-smart-2.6.0.jar",
           "AnalyzedBy": "jar"
@@ -11002,8 +11002,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/json-smart-2.6.0.jar",
           "AnalyzedBy": "jar"
@@ -11016,8 +11016,8 @@
           },
           "Version": "4.13.2",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/antlr4-runtime-4.13.2.jar",
           "AnalyzedBy": "jar"
@@ -11033,8 +11033,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/commons-exec-1.6.0.jar",
           "AnalyzedBy": "jar"
@@ -11050,8 +11050,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/commons-lang3-3.14.0.jar",
           "AnalyzedBy": "jar"
@@ -11067,8 +11067,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/commons-text-1.15.0.jar",
           "AnalyzedBy": "jar"
@@ -11081,8 +11081,8 @@
           },
           "Version": "4.5.14",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11095,8 +11095,8 @@
           },
           "Version": "4.4.16",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11112,8 +11112,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/log4j-api-2.25.5.jar",
           "AnalyzedBy": "jar"
@@ -11129,8 +11129,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/log4j-to-slf4j-2.25.5.jar",
           "AnalyzedBy": "jar"
@@ -11143,8 +11143,8 @@
           },
           "Version": "1.9.27",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11157,8 +11157,8 @@
           },
           "Version": "1.9.27",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11171,8 +11171,8 @@
           },
           "Version": "1.9.27",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11185,8 +11185,8 @@
           },
           "Version": "1.9.27",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11199,8 +11199,8 @@
           },
           "Version": "1.9.27",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11213,8 +11213,8 @@
           },
           "Version": "1.9.27",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11227,8 +11227,8 @@
           },
           "Version": "1.9.27",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11241,8 +11241,8 @@
           },
           "Version": "1.9.27",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11255,8 +11255,8 @@
           },
           "Version": "1.9.27",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11269,8 +11269,8 @@
           },
           "Version": "3.9.16",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11283,8 +11283,8 @@
           },
           "Version": "3.9.16",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11297,8 +11297,8 @@
           },
           "Version": "3.9.16",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11311,8 +11311,8 @@
           },
           "Version": "3.9.16",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11325,8 +11325,8 @@
           },
           "Version": "3.9.16",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11339,8 +11339,8 @@
           },
           "Version": "3.9.16",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11353,8 +11353,8 @@
           },
           "Version": "3.9.16",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11367,8 +11367,8 @@
           },
           "Version": "3.9.16",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11384,8 +11384,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/tomcat-embed-core-11.0.27.jar",
           "AnalyzedBy": "jar"
@@ -11401,8 +11401,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/tomcat-embed-el-11.0.27.jar",
           "AnalyzedBy": "jar"
@@ -11418,8 +11418,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/tomcat-embed-websocket-11.0.27.jar",
           "AnalyzedBy": "jar"
@@ -11432,8 +11432,8 @@
           },
           "Version": "3.0.1",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/asciidoctorj-3.0.1.jar",
           "AnalyzedBy": "jar"
@@ -11446,8 +11446,8 @@
           },
           "Version": "3.0.1",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/asciidoctorj-api-3.0.1.jar",
           "AnalyzedBy": "jar"
@@ -11460,8 +11460,8 @@
           },
           "Version": "1.9.25.1",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/aspectjweaver-1.9.25.1.jar",
           "AnalyzedBy": "jar"
@@ -11477,8 +11477,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/attoparser-2.0.7.RELEASE.jar",
           "AnalyzedBy": "jar"
@@ -11494,8 +11494,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jose4j-0.9.6.jar",
           "AnalyzedBy": "jar"
@@ -11511,8 +11511,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/org/bouncycastle/bcpkix-jdk18on/1.85/bcpkix-jdk18on-1.85.jar",
           "AnalyzedBy": "jar"
@@ -11528,8 +11528,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/bcprov-jdk18on-1.85.jar",
           "AnalyzedBy": "jar"
@@ -11545,8 +11545,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/org/bouncycastle/bcprov-jdk18on/1.85/bcprov-jdk18on-1.85.jar",
           "AnalyzedBy": "jar"
@@ -11562,8 +11562,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/org/bouncycastle/bctls-jdk18on/1.85/bctls-jdk18on-1.85.jar",
           "AnalyzedBy": "jar"
@@ -11579,8 +11579,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/org/bouncycastle/bcutil-jdk18on/1.85/bcutil-jdk18on-1.85.jar",
           "AnalyzedBy": "jar"
@@ -11593,8 +11593,8 @@
           },
           "Version": "2.0",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11607,8 +11607,8 @@
           },
           "Version": "1.29",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11621,8 +11621,8 @@
           },
           "Version": "2.0",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11638,8 +11638,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/standalone-static-uber-2.4.48.jar",
           "AnalyzedBy": "jar"
@@ -11655,8 +11655,8 @@
             "BSD-2-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/crac-1.5.0.jar",
           "AnalyzedBy": "jar"
@@ -11672,8 +11672,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/angus-activation-2.0.3.jar",
           "AnalyzedBy": "jar"
@@ -11689,8 +11689,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/flyway-core-12.4.0.jar",
           "AnalyzedBy": "jar"
@@ -11703,8 +11703,8 @@
           },
           "Version": "12.4.0",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/flyway-database-hsqldb-12.4.0.jar",
           "AnalyzedBy": "jar"
@@ -11717,8 +11717,8 @@
           },
           "Version": "4.0.9",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/com.sun.xml.bind-jaxb-core-4.0.9.jar",
           "AnalyzedBy": "jar"
@@ -11731,8 +11731,8 @@
           },
           "Version": "4.0.9",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/org.glassfish.jaxb-jaxb-core-4.0.9.jar",
           "AnalyzedBy": "jar"
@@ -11745,8 +11745,8 @@
           },
           "Version": "4.0.9",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jaxb-impl-4.0.9.jar",
           "AnalyzedBy": "jar"
@@ -11762,8 +11762,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jaxb-runtime-4.0.9.jar",
           "AnalyzedBy": "jar"
@@ -11776,8 +11776,8 @@
           },
           "Version": "4.0.9",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/com.sun.xml.bind-jaxb-core-4.0.9.jar",
           "AnalyzedBy": "jar"
@@ -11793,8 +11793,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/txw2-4.0.9.jar",
           "AnalyzedBy": "jar"
@@ -11811,8 +11811,8 @@
             "BSD-2-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/HdrHistogram-2.2.2.jar",
           "AnalyzedBy": "jar"
@@ -11828,8 +11828,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/hibernate-models-1.1.2.jar",
           "AnalyzedBy": "jar"
@@ -11845,8 +11845,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/hibernate-validator-9.1.5.Final.jar",
           "AnalyzedBy": "jar"
@@ -11862,8 +11862,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/hibernate-core-7.4.13.Final.jar",
           "AnalyzedBy": "jar"
@@ -11876,8 +11876,8 @@
           },
           "Version": "2.7.3",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/hsqldb-2.7.3.jar",
           "AnalyzedBy": "jar"
@@ -11893,8 +11893,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jboss-logging-3.6.3.Final.jar",
           "AnalyzedBy": "jar"
@@ -11910,8 +11910,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jcodings-1.0.64.jar",
           "AnalyzedBy": "jar"
@@ -11927,8 +11927,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/joni-2.2.7.jar",
           "AnalyzedBy": "jar"
@@ -11944,8 +11944,8 @@
             "EPL-1.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/dirgra-0.5.jar",
           "AnalyzedBy": "jar"
@@ -11961,8 +11961,8 @@
             "Ruby"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-10.1.2.0.jar",
           "AnalyzedBy": "jar"
@@ -11975,8 +11975,8 @@
           },
           "Version": "10.1.2.0",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-base-10.1.2.0.jar",
           "AnalyzedBy": "jar"
@@ -11992,8 +11992,8 @@
             "EPL-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-prism-2.0.4.jar",
           "AnalyzedBy": "jar"
@@ -12009,8 +12009,8 @@
             "Ruby"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar",
           "AnalyzedBy": "jar"
@@ -12026,8 +12026,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jzlib-1.1.5.jar",
           "AnalyzedBy": "jar"
@@ -12043,8 +12043,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jsoup-1.23.2.jar",
           "AnalyzedBy": "jar"
@@ -12060,8 +12060,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jspecify-1.0.1.jar",
           "AnalyzedBy": "jar"
@@ -12077,8 +12077,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/asm-9.10.1.jar",
           "AnalyzedBy": "jar"
@@ -12094,8 +12094,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/asm-analysis-9.10.1.jar",
           "AnalyzedBy": "jar"
@@ -12111,8 +12111,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/asm-commons-9.10.1.jar",
           "AnalyzedBy": "jar"
@@ -12128,8 +12128,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/asm-tree-9.10.1.jar",
           "AnalyzedBy": "jar"
@@ -12145,8 +12145,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/asm-util-9.10.1.jar",
           "AnalyzedBy": "jar"
@@ -12162,8 +12162,8 @@
             "GPL-2.0-only"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar",
           "AnalyzedBy": "jar"
@@ -12176,8 +12176,8 @@
           },
           "Version": "0.0.4",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/prism-parser-api-0.0.4.jar",
           "AnalyzedBy": "jar"
@@ -12190,8 +12190,8 @@
           },
           "Version": "0.0.4",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/prism-parser-wasm-0.0.4.jar",
           "AnalyzedBy": "jar"
@@ -12207,8 +12207,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/jcl-over-slf4j-2.0.18.jar",
           "AnalyzedBy": "jar"
@@ -12224,8 +12224,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jul-to-slf4j-2.0.20.jar",
           "AnalyzedBy": "jar"
@@ -12241,8 +12241,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/slf4j-api-2.0.18.jar",
           "AnalyzedBy": "jar"
@@ -12258,8 +12258,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/slf4j-api-2.0.20.jar",
           "AnalyzedBy": "jar"
@@ -12275,8 +12275,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jars/mima/slf4j-simple-2.0.18.jar",
           "AnalyzedBy": "jar"
@@ -12292,8 +12292,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/org/snakeyaml/snakeyaml-engine/2.10/snakeyaml-engine-2.10.jar",
           "AnalyzedBy": "jar"
@@ -12309,8 +12309,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12326,8 +12326,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-actuator-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12343,8 +12343,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-actuator-autoconfigure-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12360,8 +12360,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-autoconfigure-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12377,8 +12377,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-configuration-metadata-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12394,8 +12394,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-data-commons-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12411,8 +12411,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-data-jpa-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12428,8 +12428,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-health-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12445,8 +12445,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-hibernate-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12462,8 +12462,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-http-converter-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12479,8 +12479,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-jackson-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12496,8 +12496,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-jarmode-tools-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12513,8 +12513,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-jdbc-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12530,8 +12530,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-jpa-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12547,8 +12547,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-micrometer-metrics-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12564,8 +12564,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-micrometer-observation-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12581,8 +12581,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-persistence-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12598,8 +12598,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-properties-migrator-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12615,8 +12615,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-security-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12632,8 +12632,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-security-oauth2-client-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12649,8 +12649,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-servlet-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12666,8 +12666,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-sql-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12683,8 +12683,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-thymeleaf-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12700,8 +12700,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-tomcat-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12717,8 +12717,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-transaction-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12734,8 +12734,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-validation-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12751,8 +12751,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-web-server-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12768,8 +12768,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-boot-webmvc-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12785,8 +12785,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-data-commons-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12802,8 +12802,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-data-jpa-4.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12819,8 +12819,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-security-config-7.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12836,8 +12836,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-security-core-7.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12853,8 +12853,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-security-crypto-7.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12870,8 +12870,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-security-oauth2-client-7.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12887,8 +12887,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-security-oauth2-core-7.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12904,8 +12904,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-security-oauth2-jose-7.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12921,8 +12921,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-security-web-7.1.2.jar",
           "AnalyzedBy": "jar"
@@ -12939,8 +12939,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-aop-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -12957,8 +12957,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-aspects-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -12975,8 +12975,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-beans-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -12993,8 +12993,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-context-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -13011,8 +13011,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-core-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -13029,8 +13029,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-expression-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -13047,8 +13047,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-jdbc-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -13065,8 +13065,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-orm-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -13083,8 +13083,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-tx-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -13101,8 +13101,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-web-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -13119,8 +13119,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/spring-webmvc-7.0.10.jar",
           "AnalyzedBy": "jar"
@@ -13136,8 +13136,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/thymeleaf-extras-springsecurity6-3.1.5.RELEASE.jar",
           "AnalyzedBy": "jar"
@@ -13150,8 +13150,8 @@
           },
           "Version": "3.1.5.RELEASE",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/thymeleaf-3.1.5.RELEASE.jar",
           "AnalyzedBy": "jar"
@@ -13167,8 +13167,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/thymeleaf-spring6-3.1.5.RELEASE.jar",
           "AnalyzedBy": "jar"
@@ -13184,8 +13184,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/unbescape-1.1.6.RELEASE.jar",
           "AnalyzedBy": "jar"
@@ -13201,8 +13201,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/bootstrap-5.3.5.jar",
           "AnalyzedBy": "jar"
@@ -13218,8 +13218,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jquery-4.0.0.jar",
           "AnalyzedBy": "jar"
@@ -13235,8 +13235,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/webjars-locator-lite-1.1.5.jar",
           "AnalyzedBy": "jar"
@@ -13249,8 +13249,8 @@
           },
           "Version": "3.13.2",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/wiremock-standalone-3.13.2.jar",
           "AnalyzedBy": "jar"
@@ -13266,8 +13266,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/snakeyaml-2.6.jar",
           "AnalyzedBy": "jar"
@@ -13285,8 +13285,8 @@
             "LGPL-2.1-only"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/jopenssl.jar",
           "AnalyzedBy": "jar"
@@ -13304,8 +13304,8 @@
             "LGPL-2.1-only"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jruby-stdlib-10.1.2.0.jar/META-INF/jruby.home/lib/ruby/stdlib/readline.jar",
           "AnalyzedBy": "jar"
@@ -13321,8 +13321,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jackson-core-3.1.7.jar",
           "AnalyzedBy": "jar"
@@ -13338,8 +13338,8 @@
             "Apache-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/jackson-databind-3.1.7.jar",
           "AnalyzedBy": "jar"
@@ -13352,8 +13352,8 @@
           },
           "Version": "1.2",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/xml-resolver-1.2.jar",
           "AnalyzedBy": "jar"
@@ -13366,8 +13366,8 @@
           },
           "Version": "1.1.3.1",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/xmlpull-1.1.3.1.jar",
           "AnalyzedBy": "jar"
@@ -13380,8 +13380,8 @@
           },
           "Version": "1.1.4c",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "FilePath": "home/webgoat/webgoat.jar/BOOT-INF/lib/xpp3_min-1.1.4c.jar",
           "AnalyzedBy": "jar"
@@ -13403,8 +13403,8 @@
           "FixedVersion": "1.4.7, 1.4.11",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2013-7285",
@@ -13413,7 +13413,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:a2a1a781dea5b83cb841c75ab686cd3f094fa2c3eb2dc6df1211acb573479379",
+          "Fingerprint": "sha256:2381a8942b35854a1ec3d8808e99fd0decd8efd578c35306ccce38aec31a42a7",
           "Title": "XStream: remote code execution due to insecure XML deserialization",
           "Description": "Xstream API versions up to 1.4.6 and version 1.4.10, if the security framework has not been initialized, may allow a remote attacker to run arbitrary shell commands by manipulating the processed input stream when unmarshaling XML or any supported format. e.g. JSON.",
           "Severity": "CRITICAL",
@@ -13479,8 +13479,8 @@
           "FixedVersion": "1.4.9",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-3674",
@@ -13489,7 +13489,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:358b4a29f9c147352af18072d14abf70db659708f40f7ad2803af8f97b223b2b",
+          "Fingerprint": "sha256:62eafb48c8df8cc1e65edd0c2de59275ad221fee1f277a70ca1aa0703e5c0a00",
           "Title": "XStream: enabled processing of external entities",
           "Description": "Multiple XML external entity (XXE) vulnerabilities in the (1) Dom4JDriver, (2) DomDriver, (3) JDomDriver, (4) JDom2Driver, (5) SjsxpDriver, (6) StandardStaxDriver, and (7) WstxDriver drivers in XStream before 1.4.9 allow remote attackers to read arbitrary files via a crafted XML document.",
           "Severity": "HIGH",
@@ -13557,8 +13557,8 @@
           "FixedVersion": "1.4.10",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2017-7957",
@@ -13567,7 +13567,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:93d6a4a3b81fd157016fa3ffa13f5ede1811623a6f2ccf032f007f9255f0c53b",
+          "Fingerprint": "sha256:93ba8f488b2ab01aea722b67922ecfcb3bd50a2c0da418bc1986ffc4e7016e80",
           "Title": "XStream: DoS when unmarshalling void type",
           "Description": "XStream through 1.4.9, when a certain denyTypes workaround is not used, mishandles attempts to create an instance of the primitive type 'void' during unmarshalling, leading to a remote application crash, as demonstrated by an xstream.fromXML(\"\u003cvoid/\u003e\") call.",
           "Severity": "HIGH",
@@ -13634,8 +13634,8 @@
           "FixedVersion": "1.4.14-java7",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-26217",
@@ -13644,7 +13644,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:aad62e36d8b81fc3384165d4eee7d4a7656ab966d9ba2a1937cc56ae5a09531a",
+          "Fingerprint": "sha256:2141d5d72d214b040f7405520c952c970b737c0302a8720a2af37d2fb9c3f6cd",
           "Title": "XStream: remote code execution due to insecure XML deserialization when relying on blocklists",
           "Description": "XStream before version 1.4.14 is vulnerable to Remote Code Execution.The vulnerability may allow a remote attacker to run arbitrary shell commands only by manipulating the processed input stream. Only users who rely on blocklists are affected. Anyone using XStream's Security Framework allowlist is not affected. The linked advisory provides code workarounds for users who cannot upgrade. The issue is fixed in version 1.4.14.",
           "Severity": "HIGH",
@@ -13725,8 +13725,8 @@
           "FixedVersion": "1.4.16",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-21341",
@@ -13735,7 +13735,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:3da027eea041225907f815a67d8793baee72e7e1e8e154ee3c1d3f6e1f430425",
+          "Fingerprint": "sha256:8f570cb116feb7fd42ccd55d9b700445c86d0d7812cf40a9853e280808d7482f",
           "Title": "XStream: allow a remote attacker to cause DoS only by manipulating the processed input stream",
           "Description": "XStream is a Java library to serialize objects to XML and back again. In XStream before version 1.4.16, there is vulnerability which may allow a remote attacker to allocate 100% CPU time on the target system depending on CPU type or parallel execution of such a payload resulting in a denial of service only by manipulating the processed input stream. No user is affected who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. If you rely on XStream's default blacklist of the Security Framework, you will have to use at least version 1.4.16.",
           "Severity": "HIGH",
@@ -13816,8 +13816,8 @@
           "FixedVersion": "1.4.17",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-29505",
@@ -13826,7 +13826,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:1d0398c3329cc150fd3be3070a8757c8f5ed7554aceeacee3c8f87f0c13234b3",
+          "Fingerprint": "sha256:d0c1adf426a10f61685c6fb78790ce6b37cabb8acaccfd7551eacdfae2dfbe62",
           "Title": "XStream: remote command execution attack by manipulating the processed input stream",
           "Description": "XStream is software for serializing Java objects to XML and back again. A vulnerability in XStream versions prior to 1.4.17 may allow a remote attacker has sufficient rights to execute commands of the host only by manipulating the processed input stream. No user who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types is affected. The vulnerability is patched in version 1.4.17.",
           "Severity": "HIGH",
@@ -13903,8 +13903,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39139",
@@ -13913,7 +13913,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:37d002ec068146c0280c305d2d72040ae5ad0f5b97917a64233a94de6866c512",
+          "Fingerprint": "sha256:474f0c688454677a1db6e9acae479c125d6f04a87d7bae1a26c2bbd4b682b84c",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of Xalan xsltc.trax.TemplatesImpl",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. A user is only affected if using the version out of the box with JDK 1.7u21 or below. However, this scenario can be adjusted easily to an external Xalan that works regardless of the version of the Java runtime. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -13987,8 +13987,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39141",
@@ -13997,7 +13997,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:a16e0df8bc254cca25ab3f454d514ccd9d5ac6eef6c8476729774715fae008e0",
+          "Fingerprint": "sha256:ce32283ffb7a3969698438830a5f17275b94b84b1dbb37b5aa7ea62ba6a48283",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.xml.internal.ws.client.sei.*",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -14071,8 +14071,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39144",
@@ -14081,7 +14081,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:8d7f6747dc6eb86a1608379335e7f5da5c36e8c8a3e9d18898a0b739780d5318",
+          "Fingerprint": "sha256:b68794d94490e92b48eb1be50473fb2f1386b3d34928ef05c7ad51eb802a162f",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of sun.tracing.*",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker has sufficient rights to execute commands of the host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -14159,8 +14159,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39145",
@@ -14169,7 +14169,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:63216e78bc9db145bc48d251888300d0ebf202bd21fbb1a0acbc8e3cdf864e74",
+          "Fingerprint": "sha256:56bc38b0dbeeb3c2f4ddb5beca4ab9ba9475a373fef928de2e02eadcdecc4943",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.jndi.ldap.LdapBindingEnumeration",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -14243,8 +14243,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39146",
@@ -14253,7 +14253,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:7f4e504adfd52a676791c9f282410e9a59990b3a6ac6c8d1d92d885cc5815dbb",
+          "Fingerprint": "sha256:eb5b2b99ea1cd3b1ad6e3f7eebd1901676924c768e41ac94f449a89dfdd25358",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of javax.swing.UIDefaults$ProxyLazyValue",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -14327,8 +14327,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39147",
@@ -14337,7 +14337,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:637207c7f67cf6f3eed8b8dbfc753e84b899474361987483c184594367472769",
+          "Fingerprint": "sha256:ee0f11c60c052f87f0ef012fa8254d1340769a3cf6dd4b8c15669ec8709be63a",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.jndi.ldap.LdapSearchEnumeration",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -14411,8 +14411,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39148",
@@ -14421,7 +14421,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:b1521fc3af6ef377e6b5a0d9d501ab9e3e9db0d1ef3f19798607b64947d37644",
+          "Fingerprint": "sha256:92cf71c10407553a056db2cce10c6a1f4a0f0ee9b024c5540271c83c79e503a0",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.jndi.toolkit.dir.ContextEnumerator",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -14495,8 +14495,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39149",
@@ -14505,7 +14505,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:4d96e8a52980b53f7af33d4dba38fcacf2ffa3a3a9b998a8c2a0af663cf81bf5",
+          "Fingerprint": "sha256:28dc4284c45d71460eb6ed7d49ccdfe75a19bfdf4a17460b8d5159b6923e90ca",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.corba.*",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -14579,8 +14579,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39150",
@@ -14589,7 +14589,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:d1182a4023d7d399e4a444c800177558990f2641a40ef0b6b3ffc795c35b0e61",
+          "Fingerprint": "sha256:0492ed6d67d4d72d724aea1eab1c1db74aae9afc797d3d35d3b98eea9aea93f6",
           "Title": "xstream: Server-side request forgery (SSRF) via unsafe deserialization of com.sun.xml.internal.ws.client.sei.*",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to request data from internal resources that are not publicly available only by manipulating the processed input stream with a Java runtime version 14 to 8. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. If you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.18.",
           "Severity": "HIGH",
@@ -14663,8 +14663,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39151",
@@ -14673,7 +14673,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:c2b47902aa9296ea56b877fcb63c7f13b155413cbd89dca7582d67cb1d2d9609",
+          "Fingerprint": "sha256:8ad52f8bd831b7e6fc143b846b222ea37d1a4c7c7e649eae8c3234e0d1df5c69",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.jndi.ldap.LdapBindingEnumeration",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -14747,8 +14747,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39152",
@@ -14757,7 +14757,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:2f0edeb195e077b6ff4657dd3e0975ff04ee89ad61add029eb93f396588dbe70",
+          "Fingerprint": "sha256:fc9e56c6a32f68408b87962d679b38fba6a756e9b19b1c42a06d2fe96ba18433",
           "Title": "xstream: Server-side request forgery (SSRF) via unsafe deserialization of jdk.nashorn.internal.runtime.Source$URLData",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to request data from internal resources that are not publicly available only by manipulating the processed input stream with a Java runtime version 14 to 8. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. If you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.18.",
           "Severity": "HIGH",
@@ -14831,8 +14831,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39153",
@@ -14841,7 +14841,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:3a8727a27862d17b63d982f26d9e18fccc69decc1d85c35ef7f8423080169f22",
+          "Fingerprint": "sha256:7e580b44bdb59f745ab06b8f6858f4d77e24415e89f7ef19596cdd62d5bdf808",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of Xalan xsltc.trax.TemplatesImpl",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream, if using the version out of the box with Java runtime version 14 to 8 or with JavaFX installed. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -14915,8 +14915,8 @@
           "FixedVersion": "1.4.18",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-39154",
@@ -14925,7 +14925,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:fc53033331bf30f10683fc999bab93d14d041c640085ccaeb9add6e59ef0bdea",
+          "Fingerprint": "sha256:5fafc06391c772571cf9df0b0a45aeb3d9d73e0e682e4dc805870ca00fd1f7f3",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of javax.swing.UIDefaults$ProxyLazyValue",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -14999,8 +14999,8 @@
           "FixedVersion": "1.4.19",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-43859",
@@ -15009,7 +15009,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:4fd69c4ad5c425aa3c07022c6bc85e1ed4d0770a93d3eb067c7eaa5fd7efc8b7",
+          "Fingerprint": "sha256:51bfcf8a02a597597f7f8374f5f11fde2ba342dde6507fee35a17e51610cac3f",
           "Title": "xstream: Injecting highly recursive collections or maps can cause a DoS",
           "Description": "XStream is an open source java library to serialize objects to XML and back again. Versions prior to 1.4.19 may allow a remote attacker to allocate 100% CPU time on the target system depending on CPU type or parallel execution of such a payload resulting in a denial of service only by manipulating the processed input stream. XStream 1.4.19 monitors and accumulates the time it takes to add elements to collections and throws an exception if a set threshold is exceeded. Users are advised to upgrade as soon as possible. Users unable to upgrade may set the NO_REFERENCE mode to prevent recursion. See GHSA-rmr5-cpv2-vgjf for further details on a workaround if an upgrade is not possible.",
           "Severity": "HIGH",
@@ -15078,8 +15078,8 @@
           "FixedVersion": "1.4.20",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-40151",
@@ -15088,7 +15088,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:628e49a204d73420c6c676886aaa3704b32b814a11135f777a532d6d54328bb1",
+          "Fingerprint": "sha256:08c6d74e8cf4d793320231dff11c6df92e06f2320d4073585c39b9ae95b4b382",
           "Title": "xstream: Xstream to serialise XML data was vulnerable to Denial of Service attacks",
           "Description": "Those using Xstream to seralize XML data may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stackoverflow. This effect may support a denial of service attack.",
           "Severity": "HIGH",
@@ -15145,8 +15145,8 @@
           "FixedVersion": "1.4.20",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-41966",
@@ -15155,7 +15155,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:1e3daf65b5ded5f191fdc353e90d1627a3b74f65f4f19576ab50abbf6d46d3b9",
+          "Fingerprint": "sha256:0f105bc4e583871c05f9c3bfb400936357c3dd843692f70f4edb7a54d1e81759",
           "Title": "xstream: Denial of Service by injecting recursive collections or maps based on element's hash values raising a stack overflow",
           "Description": "XStream serializes Java objects to XML and back again. Versions prior to 1.4.20 may allow a remote attacker to terminate the application with a stack overflow error, resulting in a denial of service only via manipulation the processed input stream. The attack uses the hash code implementation for collections and maps to force recursive hash calculation causing a stack overflow. This issue is patched in version 1.4.20 which handles the stack overflow and raises an InputManipulationException instead. A potential workaround for users who only use HashMap or HashSet and whose XML refers these only as default map or set, is to change the default implementation of java.util.Map and java.util per the code example in the referenced advisory. However, this implies that your application does not care about the implementation of the map and all elements are comparable.",
           "Severity": "HIGH",
@@ -15214,8 +15214,8 @@
           "FixedVersion": "1.4.21",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:5abb663ef83acda23e357998480d48c9913be12abbf591858c0d90d6da915ff0",
-            "DiffID": "sha256:1e3bf5e2cdf1675b3b50ba97c01753c59d3758d7c40b5b749a643c386c80b36b"
+            "Digest": "sha256:32c7dcd39278cc2b23bac2869ee99476c5c8304c40aafbdea13276b331d798df",
+            "DiffID": "sha256:33ae0389acc5f946735eb2cabca179a2d01bd6916d62da591086ab2cb6c92837"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-47072",
@@ -15224,7 +15224,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:dd9e67ff1f635ff506b28552c3abd29d42ef7acc4c0a084c4aaf2d2953bcb5c6",
+          "Fingerprint": "sha256:154b10eff698cfa1cd16532814756e30c8c84f4015c5a97ddb4a07430c985214",
           "Title": "com.thoughtworks.xstream: XStream is vulnerable to a Denial of Service attack due to stack overflow from a manipulated binary input stream",
           "Description": "XStream is a simple library to serialize objects to XML and back again. This vulnerability may allow a remote attacker to terminate the application with a stack overflow error resulting in a denial of service only by manipulating the processed input stream when XStream is configured to use the BinaryStreamDriver. XStream 1.4.21 has been patched to detect the manipulation in the binary input stream causing the the stack overflow and raises an InputManipulationException instead. Users are advised to upgrade. Users unable to upgrade may catch the StackOverflowError in the client code calling XStream if XStream is configured to use the BinaryStreamDriver.",
           "Severity": "HIGH",

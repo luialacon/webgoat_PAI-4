@@ -3,16 +3,16 @@
   "Trivy": {
     "Version": "0.76.2"
   },
-  "ReportID": "01a2180b-1ed4-73cf-bc6f-9d50a7a94368",
-  "CreatedAt": "2026-11-26T13:28:31.700251432Z",
-  "ArtifactID": "sha256:6d54228b8e5548138579e30409cac360d90a17b260c843615f39b5cfeb9040b9",
+  "ReportID": "01a21821-fbd7-782e-90b6-7c2fc3897406",
+  "CreatedAt": "2026-11-26T13:53:30.071538202Z",
+  "ArtifactID": "sha256:a3753ac83aa2fc852a363931bfd0467f3debaa186be3879ea3c94ade3203299e",
   "ArtifactName": ".",
   "ArtifactType": "repository",
   "Metadata": {
     "RepoURL": "https://github.com/luialacon/webgoat_PAI-4",
     "Branch": "main",
-    "Commit": "65c1b399bab814ac8adbacfe64b35565ac212ce4",
-    "CommitMsg": "Sustituir Dependency-Check por Trivy SCA, fijar Trivy valido, importacion robusta a DefectDojo\n\nCo-Authored-By: Claude Sonnet 5.5 \u003cnoreply@anthropic.com\u003e\nClaude-Session: https://claude.ai/code/session_01PPQEPJCqBNCe2fesFwbGGj",
+    "Commit": "b6d363fdad70a549f626c2475368e8b0f3069e67",
+    "CommitMsg": "Analizar tambien Dockerfile_desktop con Trivy IaC; diagramas renderizados y evidencias de la ejecucion corregida\n\nCo-Authored-By: Claude Sonnet 5.5 \u003cnoreply@anthropic.com\u003e\nClaude-Session: https://claude.ai/code/session_01PPQEPJCqBNCe2fesFwbGGj",
     "Author": "RaimundoNexoNeural \u003craimundo@nexoneural.es\u003e",
     "Committer": "RaimundoNexoNeural \u003craimundo@nexoneural.es\u003e"
   },
@@ -3743,7 +3743,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:aae62a4421e4ef76b47c13e581e3d4a34560ccffa621114e460de6f66d5f0749",
+          "Fingerprint": "sha256:74941d5c88efae0f83bb3a356c380ce9401a78c3ad5a4aca152fac8a599988ca",
           "Title": "XStream: remote code execution due to insecure XML deserialization",
           "Description": "Xstream API versions up to 1.4.6 and version 1.4.10, if the security framework has not been initialized, may allow a remote attacker to run arbitrary shell commands by manipulating the processed input stream when unmarshaling XML or any supported format. e.g. JSON.",
           "Severity": "CRITICAL",
@@ -3815,7 +3815,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:62b708e27a857f5e5535899da3c84c5fad41f72fd489c0f2d3b7b7d7a54f22cd",
+          "Fingerprint": "sha256:4f55e7e5a4dc8dcd71ae73d6cdbe5e2e11cad8b82f730336baa1272d830ec20a",
           "Title": "XStream: enabled processing of external entities",
           "Description": "Multiple XML external entity (XXE) vulnerabilities in the (1) Dom4JDriver, (2) DomDriver, (3) JDomDriver, (4) JDom2Driver, (5) SjsxpDriver, (6) StandardStaxDriver, and (7) WstxDriver drivers in XStream before 1.4.9 allow remote attackers to read arbitrary files via a crafted XML document.",
           "Severity": "HIGH",
@@ -3889,7 +3889,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:dbe49273121afe66c306b531f6bbc998ef0b2558c7c404779af8697186c6d5d9",
+          "Fingerprint": "sha256:4975ad96a78714cfc49e74126596842368279e8a71770f01866759eb3fa892c1",
           "Title": "XStream: DoS when unmarshalling void type",
           "Description": "XStream through 1.4.9, when a certain denyTypes workaround is not used, mishandles attempts to create an instance of the primitive type 'void' during unmarshalling, leading to a remote application crash, as demonstrated by an xstream.fromXML(\"\u003cvoid/\u003e\") call.",
           "Severity": "HIGH",
@@ -3962,7 +3962,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:aab1b302639121952d366b4a228bb064222f92e5fa8980134f3fe42c07b70e2d",
+          "Fingerprint": "sha256:669e1faedda7d91baa99e2106c000bf0dda533cdaa7ef6b8a2d7737e57656df4",
           "Title": "XStream: remote code execution due to insecure XML deserialization when relying on blocklists",
           "Description": "XStream before version 1.4.14 is vulnerable to Remote Code Execution.The vulnerability may allow a remote attacker to run arbitrary shell commands only by manipulating the processed input stream. Only users who rely on blocklists are affected. Anyone using XStream's Security Framework allowlist is not affected. The linked advisory provides code workarounds for users who cannot upgrade. The issue is fixed in version 1.4.14.",
           "Severity": "HIGH",
@@ -4049,7 +4049,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:17284c05e127ae565be592f3c244e2129a5ddcf6e60ff8dedab476b92ab0ab1f",
+          "Fingerprint": "sha256:d83694d84374665dd3b80d4a4eaa3690b2fb1c3cad168f2115a9ed3dbd4fb62d",
           "Title": "XStream: allow a remote attacker to cause DoS only by manipulating the processed input stream",
           "Description": "XStream is a Java library to serialize objects to XML and back again. In XStream before version 1.4.16, there is vulnerability which may allow a remote attacker to allocate 100% CPU time on the target system depending on CPU type or parallel execution of such a payload resulting in a denial of service only by manipulating the processed input stream. No user is affected who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. If you rely on XStream's default blacklist of the Security Framework, you will have to use at least version 1.4.16.",
           "Severity": "HIGH",
@@ -4136,7 +4136,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:ab1ba20a64ec3bea2c68b4e7fa410e8228b99050041ff3f1d8ad0342301e8add",
+          "Fingerprint": "sha256:956d0fffec8f125e1a0767cf3ac7bac7e6fd8b08d1533b78074289e78b5480ff",
           "Title": "XStream: remote command execution attack by manipulating the processed input stream",
           "Description": "XStream is software for serializing Java objects to XML and back again. A vulnerability in XStream versions prior to 1.4.17 may allow a remote attacker has sufficient rights to execute commands of the host only by manipulating the processed input stream. No user who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types is affected. The vulnerability is patched in version 1.4.17.",
           "Severity": "HIGH",
@@ -4219,7 +4219,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:d6ce097d7fe1ce1017bbec5b37e30a012a8181787f3a7eee3b590ede31966109",
+          "Fingerprint": "sha256:9afb6f94c64fee0f79fb313e802320ae0bf212470ef5e509448c27aabddd24f3",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of Xalan xsltc.trax.TemplatesImpl",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. A user is only affected if using the version out of the box with JDK 1.7u21 or below. However, this scenario can be adjusted easily to an external Xalan that works regardless of the version of the Java runtime. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -4299,7 +4299,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:4122c4744a2171541441b2734eeb7c91941df5f52f5f8983cfffd16b5678272e",
+          "Fingerprint": "sha256:f28a9971fba4ac370021ddc7c00eb8bffd5b437d658bba5a8edc195a6c4329f0",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.xml.internal.ws.client.sei.*",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -4379,7 +4379,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:cf669a66bab1c59ba150d6315e97e34b0799291691c0a81964257a1f0e0cbad1",
+          "Fingerprint": "sha256:b77e8a42cbc3bdd2a7d87c54332eef57f8efd8874b2489220786219a059cac84",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of sun.tracing.*",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker has sufficient rights to execute commands of the host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -4463,7 +4463,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:5f0c2a3a47be4d74c920a0fea648269cb3a8952e43ae06ee15aad3c0fbb5901b",
+          "Fingerprint": "sha256:7c7cd0fa222c1cf6e44c17aa92729af8179ff9abf65120f49c73bf70dff1802b",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.jndi.ldap.LdapBindingEnumeration",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -4543,7 +4543,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:ec9d917c7c4e4e6aff7890d2bb919f63443196f6820760ee353b95ebefd69423",
+          "Fingerprint": "sha256:7b444c6e1e3c3867ec8765b56ef1204657150b9a65ab3c70ffd4e3d7dcd3d9e7",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of javax.swing.UIDefaults$ProxyLazyValue",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -4623,7 +4623,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:561e068fd4cd876dda0451bfb6fbe2a0a1c6db0d015906d7198cf4eda941c613",
+          "Fingerprint": "sha256:c7d5986b68248ed6acfa6070c702a24121319c10595a4477cddbe66d16ce40aa",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.jndi.ldap.LdapSearchEnumeration",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -4703,7 +4703,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:ac10e38f6d58ff9b15dc8c126899e39d2a35303d65dba891a6f1130235ee55ac",
+          "Fingerprint": "sha256:d9f710274995bb0090aa5217e5607533b7f518c2a7e98069ed71ca04805c4eda",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.jndi.toolkit.dir.ContextEnumerator",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -4783,7 +4783,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:02bb05cf435e3bb7ba3ba8fb0bfe6d138caecbe0a95265d6127d809c76a6f0e7",
+          "Fingerprint": "sha256:2f93eeb448775f5698c98f89a9246d25c155c16a9d811515bf322cd58f20f0ea",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.corba.*",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -4863,7 +4863,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:000b37c2e442c913063ebd15ad0ed325a91c6d1b26aa641453215b178ef7c595",
+          "Fingerprint": "sha256:35d003fbdb0b376ad459678a301183856a62a90cad742f7131ff580142b57a4f",
           "Title": "xstream: Server-side request forgery (SSRF) via unsafe deserialization of com.sun.xml.internal.ws.client.sei.*",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to request data from internal resources that are not publicly available only by manipulating the processed input stream with a Java runtime version 14 to 8. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. If you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.18.",
           "Severity": "HIGH",
@@ -4943,7 +4943,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:84a5bbcbda3ea5be13591c77aee6a896cb36fae7c0259bc1652f67d2eb63bad7",
+          "Fingerprint": "sha256:d191ce3238188974577300647033f7f1503787ee4cc84db7db700ddd1f872174",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of com.sun.jndi.ldap.LdapBindingEnumeration",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -5023,7 +5023,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:63f33681774888edb7f45a467ed5e5aa4f31ac6316aea0c9f475a2e0e6a963c2",
+          "Fingerprint": "sha256:8bf3d1a6a77a1c8e07665afdf55e88a905be0d77b30f7a5893d3170b49acdac4",
           "Title": "xstream: Server-side request forgery (SSRF) via unsafe deserialization of jdk.nashorn.internal.runtime.Source$URLData",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to request data from internal resources that are not publicly available only by manipulating the processed input stream with a Java runtime version 14 to 8. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. If you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.18.",
           "Severity": "HIGH",
@@ -5103,7 +5103,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:48d88a03eb9f99b8e8e0e8f04865aebfceeeab34eb913857c3c1e31d8790d766",
+          "Fingerprint": "sha256:9cdfa5c15125a008a65789cbea4cd6b348099d3e66682bf4ecb00a03ef0b143b",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of Xalan xsltc.trax.TemplatesImpl",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream, if using the version out of the box with Java runtime version 14 to 8 or with JavaFX installed. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -5183,7 +5183,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:daf43653a092888280be4449de30b24f26171df7e57c27123b936f5f96bd87df",
+          "Fingerprint": "sha256:fc8c13bb2f01cc74a7d12c8dfd83ee2500e243d3e27efad859b8dd5a9bdca8a7",
           "Title": "xstream: Arbitrary code execution via unsafe deserialization of javax.swing.UIDefaults$ProxyLazyValue",
           "Description": "XStream is a simple library to serialize objects to XML and back again. In affected versions this vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types. XStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.",
           "Severity": "HIGH",
@@ -5263,7 +5263,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:2182b756301e4d76fcd19ac06c7274d440064e7b5b988684e495f86949a960a4",
+          "Fingerprint": "sha256:84fa129b5ed3b4cd6f67352fac707485aee2fc8b90a97dc24bc408c235d5ccc1",
           "Title": "xstream: Injecting highly recursive collections or maps can cause a DoS",
           "Description": "XStream is an open source java library to serialize objects to XML and back again. Versions prior to 1.4.19 may allow a remote attacker to allocate 100% CPU time on the target system depending on CPU type or parallel execution of such a payload resulting in a denial of service only by manipulating the processed input stream. XStream 1.4.19 monitors and accumulates the time it takes to add elements to collections and throws an exception if a set threshold is exceeded. Users are advised to upgrade as soon as possible. Users unable to upgrade may set the NO_REFERENCE mode to prevent recursion. See GHSA-rmr5-cpv2-vgjf for further details on a workaround if an upgrade is not possible.",
           "Severity": "HIGH",
@@ -5338,7 +5338,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:7663368745536200573e930e94d69a862df77a22a9ec68fbd12a3dec21a58e09",
+          "Fingerprint": "sha256:59fd1a83a88ea5b5a3ff20d557b7515edc53d5df29f586174971a8d024e9d6f8",
           "Title": "xstream: Xstream to serialise XML data was vulnerable to Denial of Service attacks",
           "Description": "Those using Xstream to seralize XML data may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stackoverflow. This effect may support a denial of service attack.",
           "Severity": "HIGH",
@@ -5401,7 +5401,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:9e54cb916d100cf79b5f09b1413063148147b112a23582646bb17d24d284b940",
+          "Fingerprint": "sha256:93b7a1670607e7d0ccd1d3c92e1e7bb33e363fc8e3fd917571ae096d221b3826",
           "Title": "xstream: Denial of Service by injecting recursive collections or maps based on element's hash values raising a stack overflow",
           "Description": "XStream serializes Java objects to XML and back again. Versions prior to 1.4.20 may allow a remote attacker to terminate the application with a stack overflow error, resulting in a denial of service only via manipulation the processed input stream. The attack uses the hash code implementation for collections and maps to force recursive hash calculation causing a stack overflow. This issue is patched in version 1.4.20 which handles the stack overflow and raises an InputManipulationException instead. A potential workaround for users who only use HashMap or HashSet and whose XML refers these only as default map or set, is to change the default implementation of java.util.Map and java.util per the code example in the referenced advisory. However, this implies that your application does not care about the implementation of the map and all elements are comparable.",
           "Severity": "HIGH",
@@ -5466,7 +5466,7 @@
             "Name": "GitHub Security Advisory Maven",
             "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
           },
-          "Fingerprint": "sha256:41c9dce594f26088782ceae7027dbb58538a3eb5b43eb2be2aabeede5873d9f6",
+          "Fingerprint": "sha256:5f5e7d1b4882f665f312acd8cd4f03f86931c58afb61096fe44283a56c735387",
           "Title": "com.thoughtworks.xstream: XStream is vulnerable to a Denial of Service attack due to stack overflow from a manipulated binary input stream",
           "Description": "XStream is a simple library to serialize objects to XML and back again. This vulnerability may allow a remote attacker to terminate the application with a stack overflow error resulting in a denial of service only by manipulating the processed input stream when XStream is configured to use the BinaryStreamDriver. XStream 1.4.21 has been patched to detect the manipulation in the binary input stream causing the the stack overflow and raises an InputManipulationException instead. Users are advised to upgrade. Users unable to upgrade may catch the StackOverflowError in the client code calling XStream if XStream is configured to use the BinaryStreamDriver.",
           "Severity": "HIGH",
